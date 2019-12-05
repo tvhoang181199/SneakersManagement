@@ -1,0 +1,449 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		17A4190223995CA700802368 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4190123995CA700802368 /* HomeViewController.swift */; };
+		17C207C42397F61F00575EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207C32397F61F00575EC7 /* AppDelegate.swift */; };
+		17C207C62397F61F00575EC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207C52397F61F00575EC7 /* SceneDelegate.swift */; };
+		17C207CB2397F61F00575EC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C207C92397F61F00575EC7 /* Main.storyboard */; };
+		17C207CD2397F62100575EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C207CC2397F62100575EC7 /* Assets.xcassets */; };
+		17C207D02397F62100575EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C207CE2397F62100575EC7 /* LaunchScreen.storyboard */; };
+		17C207D82397F91600575EC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17C207D72397F91600575EC7 /* GoogleService-Info.plist */; };
+		17C207DC239812E900575EC7 /* Ultilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DB239812E900575EC7 /* Ultilities.swift */; };
+		17C207DE2398138A00575EC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DD2398138A00575EC7 /* LoginViewController.swift */; };
+		17C207E0239815E300575EC7 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DF239815E300575EC7 /* StartViewController.swift */; };
+		17C207E2239815EF00575EC7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207E1239815EF00575EC7 /* SignUpViewController.swift */; };
+		2AB3A2708A0FF5E94914CF3E /* Pods_Sneakers_Management.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFC6AEAFC85BC9E28A6540B /* Pods_Sneakers_Management.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0CFC6AEAFC85BC9E28A6540B /* Pods_Sneakers_Management.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sneakers_Management.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		17A4190123995CA700802368 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		17C207C02397F61F00575EC7 /* Sneakers Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sneakers Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		17C207C32397F61F00575EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		17C207C52397F61F00575EC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		17C207CA2397F61F00575EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		17C207CC2397F62100575EC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		17C207CF2397F62100575EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		17C207D12397F62100575EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17C207D72397F91600575EC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		17C207DB239812E900575EC7 /* Ultilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultilities.swift; sourceTree = "<group>"; };
+		17C207DD2398138A00575EC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		17C207DF239815E300575EC7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
+		17C207E1239815EF00575EC7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		8C4B0AF1957B026F191524D3 /* Pods-Sneakers Management.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakers Management.release.xcconfig"; path = "Target Support Files/Pods-Sneakers Management/Pods-Sneakers Management.release.xcconfig"; sourceTree = "<group>"; };
+		933105944BAFFFE754F91342 /* Pods-Sneakers Management.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakers Management.debug.xcconfig"; path = "Target Support Files/Pods-Sneakers Management/Pods-Sneakers Management.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		17C207BD2397F61F00575EC7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2AB3A2708A0FF5E94914CF3E /* Pods_Sneakers_Management.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		17C207B72397F61F00575EC7 = {
+			isa = PBXGroup;
+			children = (
+				17C207C22397F61F00575EC7 /* Sneakers Management */,
+				17C207C12397F61F00575EC7 /* Products */,
+				A4B4C05DE2DE18877B15C62A /* Pods */,
+				AF12E07A4A0AD0A41B0B5DAA /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		17C207C12397F61F00575EC7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				17C207C02397F61F00575EC7 /* Sneakers Management.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		17C207C22397F61F00575EC7 /* Sneakers Management */ = {
+			isa = PBXGroup;
+			children = (
+				17C207C32397F61F00575EC7 /* AppDelegate.swift */,
+				17C207C52397F61F00575EC7 /* SceneDelegate.swift */,
+				17C207DA2398118E00575EC7 /* Helpers */,
+				17C207D923980E5200575EC7 /* View Controllers */,
+				17C207C92397F61F00575EC7 /* Main.storyboard */,
+				17C207CE2397F62100575EC7 /* LaunchScreen.storyboard */,
+				17C207CC2397F62100575EC7 /* Assets.xcassets */,
+				17C207D72397F91600575EC7 /* GoogleService-Info.plist */,
+				17C207D12397F62100575EC7 /* Info.plist */,
+			);
+			path = "Sneakers Management";
+			sourceTree = "<group>";
+		};
+		17C207D923980E5200575EC7 /* View Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				17C207DF239815E300575EC7 /* StartViewController.swift */,
+				17C207DD2398138A00575EC7 /* LoginViewController.swift */,
+				17C207E1239815EF00575EC7 /* SignUpViewController.swift */,
+				17A4190123995CA700802368 /* HomeViewController.swift */,
+			);
+			path = "View Controllers";
+			sourceTree = "<group>";
+		};
+		17C207DA2398118E00575EC7 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				17C207DB239812E900575EC7 /* Ultilities.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		A4B4C05DE2DE18877B15C62A /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				933105944BAFFFE754F91342 /* Pods-Sneakers Management.debug.xcconfig */,
+				8C4B0AF1957B026F191524D3 /* Pods-Sneakers Management.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		AF12E07A4A0AD0A41B0B5DAA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				0CFC6AEAFC85BC9E28A6540B /* Pods_Sneakers_Management.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		17C207BF2397F61F00575EC7 /* Sneakers Management */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 17C207D42397F62100575EC7 /* Build configuration list for PBXNativeTarget "Sneakers Management" */;
+			buildPhases = (
+				AE3A0DDD03791D3A88415889 /* [CP] Check Pods Manifest.lock */,
+				17C207BC2397F61F00575EC7 /* Sources */,
+				17C207BD2397F61F00575EC7 /* Frameworks */,
+				17C207BE2397F61F00575EC7 /* Resources */,
+				47B54346707575FA07F8A42B /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Sneakers Management";
+			productName = "Sneakers Management";
+			productReference = 17C207C02397F61F00575EC7 /* Sneakers Management.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		17C207B82397F61F00575EC7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1120;
+				LastUpgradeCheck = 1120;
+				ORGANIZATIONNAME = "Vũ Hoàng Trịnh";
+				TargetAttributes = {
+					17C207BF2397F61F00575EC7 = {
+						CreatedOnToolsVersion = 11.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 17C207BB2397F61F00575EC7 /* Build configuration list for PBXProject "Sneakers Management" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 17C207B72397F61F00575EC7;
+			productRefGroup = 17C207C12397F61F00575EC7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				17C207BF2397F61F00575EC7 /* Sneakers Management */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		17C207BE2397F61F00575EC7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17C207D02397F62100575EC7 /* LaunchScreen.storyboard in Resources */,
+				17C207D82397F91600575EC7 /* GoogleService-Info.plist in Resources */,
+				17C207CD2397F62100575EC7 /* Assets.xcassets in Resources */,
+				17C207CB2397F61F00575EC7 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47B54346707575FA07F8A42B /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sneakers Management/Pods-Sneakers Management-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sneakers Management/Pods-Sneakers Management-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sneakers Management/Pods-Sneakers Management-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AE3A0DDD03791D3A88415889 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sneakers Management-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		17C207BC2397F61F00575EC7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				17C207E2239815EF00575EC7 /* SignUpViewController.swift in Sources */,
+				17C207E0239815E300575EC7 /* StartViewController.swift in Sources */,
+				17C207DE2398138A00575EC7 /* LoginViewController.swift in Sources */,
+				17C207C42397F61F00575EC7 /* AppDelegate.swift in Sources */,
+				17C207C62397F61F00575EC7 /* SceneDelegate.swift in Sources */,
+				17A4190223995CA700802368 /* HomeViewController.swift in Sources */,
+				17C207DC239812E900575EC7 /* Ultilities.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		17C207C92397F61F00575EC7 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17C207CA2397F61F00575EC7 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		17C207CE2397F62100575EC7 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				17C207CF2397F62100575EC7 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		17C207D22397F62100575EC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		17C207D32397F62100575EC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		17C207D52397F62100575EC7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 933105944BAFFFE754F91342 /* Pods-Sneakers Management.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 523SRU7Q76;
+				INFOPLIST_FILE = "Sneakers Management/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tvhoang.Sneakers-Management";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		17C207D62397F62100575EC7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8C4B0AF1957B026F191524D3 /* Pods-Sneakers Management.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 523SRU7Q76;
+				INFOPLIST_FILE = "Sneakers Management/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "tvhoang.Sneakers-Management";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		17C207BB2397F61F00575EC7 /* Build configuration list for PBXProject "Sneakers Management" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17C207D22397F62100575EC7 /* Debug */,
+				17C207D32397F62100575EC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		17C207D42397F62100575EC7 /* Build configuration list for PBXNativeTarget "Sneakers Management" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				17C207D52397F62100575EC7 /* Debug */,
+				17C207D62397F62100575EC7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 17C207B82397F61F00575EC7 /* Project object */;
+}
