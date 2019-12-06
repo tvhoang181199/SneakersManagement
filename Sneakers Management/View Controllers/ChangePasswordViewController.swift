@@ -1,30 +1,22 @@
 //
-//  StartViewController.swift
+//  ChangePasswordViewController.swift
 //  Sneakers Management
 //
-//  Created by Vũ Hoàng Trịnh on 12/4/19.
+//  Created by Vũ Hoàng Trịnh on 12/6/19.
 //  Copyright © 2019 Vũ Hoàng Trịnh. All rights reserved.
 //
 
 import UIKit
 
-class StartViewController: UIViewController {
-    
-    @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var signUpButton: UIButton!
+class ChangePasswordViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        setUpElements()
+
         // Do any additional setup after loading the view.
     }
     
-    func setUpElements() {
-        Utilities.styleFilledButton(signUpButton)
-        Utilities.styleHollowButton(loginButton)
-    }
-    
+
     /*
     // MARK: - Navigation
 

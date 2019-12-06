@@ -16,8 +16,11 @@
 		17C207D82397F91600575EC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17C207D72397F91600575EC7 /* GoogleService-Info.plist */; };
 		17C207DC239812E900575EC7 /* Ultilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DB239812E900575EC7 /* Ultilities.swift */; };
 		17C207DE2398138A00575EC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DD2398138A00575EC7 /* LoginViewController.swift */; };
-		17C207E0239815E300575EC7 /* StartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DF239815E300575EC7 /* StartViewController.swift */; };
 		17C207E2239815EF00575EC7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207E1239815EF00575EC7 /* SignUpViewController.swift */; };
+		17F202E2239A343A005BDCD4 /* Nike-mag.png in Resources */ = {isa = PBXBuildFile; fileRef = 17F202E1239A343A005BDCD4 /* Nike-mag.png */; };
+		17F202E4239A43BB005BDCD4 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F202E3239A43BB005BDCD4 /* AccountViewController.swift */; };
+		17F202E6239AB566005BDCD4 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F202E5239AB566005BDCD4 /* EditAccountViewController.swift */; };
+		17F202E8239AB57E005BDCD4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F202E7239AB57E005BDCD4 /* ChangePasswordViewController.swift */; };
 		2AB3A2708A0FF5E94914CF3E /* Pods_Sneakers_Management.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFC6AEAFC85BC9E28A6540B /* Pods_Sneakers_Management.framework */; };
 /* End PBXBuildFile section */
 
@@ -34,8 +37,11 @@
 		17C207D72397F91600575EC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17C207DB239812E900575EC7 /* Ultilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultilities.swift; sourceTree = "<group>"; };
 		17C207DD2398138A00575EC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		17C207DF239815E300575EC7 /* StartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StartViewController.swift; sourceTree = "<group>"; };
 		17C207E1239815EF00575EC7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		17F202E1239A343A005BDCD4 /* Nike-mag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nike-mag.png"; sourceTree = "<group>"; };
+		17F202E3239A43BB005BDCD4 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
+		17F202E5239AB566005BDCD4 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
+		17F202E7239AB57E005BDCD4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
 		8C4B0AF1957B026F191524D3 /* Pods-Sneakers Management.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakers Management.release.xcconfig"; path = "Target Support Files/Pods-Sneakers Management/Pods-Sneakers Management.release.xcconfig"; sourceTree = "<group>"; };
 		933105944BAFFFE754F91342 /* Pods-Sneakers Management.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakers Management.debug.xcconfig"; path = "Target Support Files/Pods-Sneakers Management/Pods-Sneakers Management.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,10 +81,11 @@
 			children = (
 				17C207C32397F61F00575EC7 /* AppDelegate.swift */,
 				17C207C52397F61F00575EC7 /* SceneDelegate.swift */,
+				17C207CE2397F62100575EC7 /* LaunchScreen.storyboard */,
+				17C207C92397F61F00575EC7 /* Main.storyboard */,
 				17C207DA2398118E00575EC7 /* Helpers */,
 				17C207D923980E5200575EC7 /* View Controllers */,
-				17C207C92397F61F00575EC7 /* Main.storyboard */,
-				17C207CE2397F62100575EC7 /* LaunchScreen.storyboard */,
+				17F202E0239A3421005BDCD4 /* Pictures */,
 				17C207CC2397F62100575EC7 /* Assets.xcassets */,
 				17C207D72397F91600575EC7 /* GoogleService-Info.plist */,
 				17C207D12397F62100575EC7 /* Info.plist */,
@@ -89,10 +96,12 @@
 		17C207D923980E5200575EC7 /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				17C207DF239815E300575EC7 /* StartViewController.swift */,
 				17C207DD2398138A00575EC7 /* LoginViewController.swift */,
 				17C207E1239815EF00575EC7 /* SignUpViewController.swift */,
 				17A4190123995CA700802368 /* HomeViewController.swift */,
+				17F202E3239A43BB005BDCD4 /* AccountViewController.swift */,
+				17F202E5239AB566005BDCD4 /* EditAccountViewController.swift */,
+				17F202E7239AB57E005BDCD4 /* ChangePasswordViewController.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -103,6 +112,14 @@
 				17C207DB239812E900575EC7 /* Ultilities.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		17F202E0239A3421005BDCD4 /* Pictures */ = {
+			isa = PBXGroup;
+			children = (
+				17F202E1239A343A005BDCD4 /* Nike-mag.png */,
+			);
+			path = Pictures;
 			sourceTree = "<group>";
 		};
 		A4B4C05DE2DE18877B15C62A /* Pods */ = {
@@ -186,6 +203,7 @@
 				17C207D82397F91600575EC7 /* GoogleService-Info.plist in Resources */,
 				17C207CD2397F62100575EC7 /* Assets.xcassets in Resources */,
 				17C207CB2397F61F00575EC7 /* Main.storyboard in Resources */,
+				17F202E2239A343A005BDCD4 /* Nike-mag.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -239,9 +257,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				17C207E2239815EF00575EC7 /* SignUpViewController.swift in Sources */,
-				17C207E0239815E300575EC7 /* StartViewController.swift in Sources */,
 				17C207DE2398138A00575EC7 /* LoginViewController.swift in Sources */,
+				17F202E4239A43BB005BDCD4 /* AccountViewController.swift in Sources */,
+				17F202E8239AB57E005BDCD4 /* ChangePasswordViewController.swift in Sources */,
 				17C207C42397F61F00575EC7 /* AppDelegate.swift in Sources */,
+				17F202E6239AB566005BDCD4 /* EditAccountViewController.swift in Sources */,
 				17C207C62397F61F00575EC7 /* SceneDelegate.swift in Sources */,
 				17A4190223995CA700802368 /* HomeViewController.swift in Sources */,
 				17C207DC239812E900575EC7 /* Ultilities.swift in Sources */,

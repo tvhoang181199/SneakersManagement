@@ -16,26 +16,24 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
-    @IBOutlet weak var genderTextField: UITextField!
-    @IBOutlet weak var birthdayTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var confirmPasswordTextField: UITextField!
+    @IBOutlet weak var maleButton: UIButton!
+    @IBOutlet weak var femaleButton: UIButton!
+    @IBOutlet weak var standardButton: UIButton!
+    @IBOutlet weak var adminButton: UIButton!
     
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
     
-    let genderList = ["Male", "Female", "Other"]
-    var selectedGender: String?
+    var selectedGender: String? = nil
+    var selectedAccountType: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpElements()
-        createGenderPicker()
-        createBirthdayPicker()
-        createToolbar()
-
         // Do any additional setup after loading the view.
     }
     
@@ -44,8 +42,6 @@ class SignUpViewController: UIViewController {
         Utilities.styleTextField(lastNameTextField)
         Utilities.styleTextField(firstNameTextField)
         Utilities.styleTextField(phoneNumberTextField)
-        Utilities.styleTextField(genderTextField)
-        Utilities.styleTextField(birthdayTextField)
         Utilities.styleTextField(emailTextField)
         Utilities.styleTextField(passwordTextField)
         Utilities.styleTextField(confirmPasswordTextField)
@@ -54,46 +50,57 @@ class SignUpViewController: UIViewController {
         Utilities.styleCancelHollowButton(cancelButton)
     }
     
-    // Create pickers
-    func createBirthdayPicker() {
-        let birthdayPicker = UIDatePicker()
-        birthdayPicker.datePickerMode = .date
-        birthdayPicker.addTarget(self, action: #selector(SignUpViewController.dateChanged(birthdayPicker:)), for: .valueChanged)
-        birthdayTextField.inputView = birthdayPicker
+    @IBAction func maleTapped(_ sender: Any) {
+        if femaleButton.isSelected {
+            femaleButton.isSelected = false
+            maleButton.isSelected = true
+            selectedGender = "Male"
+        }
+        else {
+            maleButton.isSelected = true
+            selectedGender = "Male"
+        }
     }
     
-    @objc func dateChanged(birthdayPicker: UIDatePicker){
-        let birthdayFormatter = DateFormatter()
-        birthdayFormatter.dateFormat = "MMM dd, yyyy"
-        birthdayTextField.text = birthdayFormatter.string(from: birthdayPicker.date)
+    @IBAction func femaleTapped(_ sender: Any) {
+        if maleButton.isSelected {
+            maleButton.isSelected = false
+            femaleButton.isSelected = true
+            selectedGender = "Female"
+        }
+        else {
+            femaleButton.isSelected = true
+            selectedGender = "Female"
+        }
     }
     
-    func createGenderPicker() {
-        let genderPicker = UIPickerView()
-        genderPicker.delegate = self
-        genderTextField.inputView = genderPicker
+    @IBAction func stardardButton(_ sender: Any) {
+        if adminButton.isSelected {
+            adminButton.isSelected = false
+            standardButton.isSelected = true
+            selectedAccountType = "Stardard"
+        }
+        else {
+            standardButton.isSelected = true
+            selectedAccountType = "Stardard"
+        }
     }
     
-    func createToolbar() {
-        let toolBar = UIToolbar()
-        toolBar.sizeToFit()
-        
-        let doneButton = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(SignUpViewController.dissmissKeyboard))
-        
-        toolBar.setItems([doneButton], animated: false)
-        toolBar.isUserInteractionEnabled = true
-        
-        genderTextField.inputAccessoryView = toolBar
-        birthdayTextField.inputAccessoryView = toolBar
-    }
-    
-    @objc func dissmissKeyboard() {
-        view.endEditing(true)
+    @IBAction func adminButton(_ sender: Any) {
+        if standardButton.isSelected {
+            standardButton.isSelected = false
+            adminButton.isSelected = true
+            selectedAccountType = "Admin"
+        }
+        else {
+            adminButton.isSelected = true
+            selectedAccountType = "Admin"
+        }
     }
     
     // Sign up method
     func validateFields() -> String? {
-        if lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || phoneNumberTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+        if lastNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || firstNameTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || phoneNumberTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || emailTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || passwordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" ||  confirmPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || selectedGender == nil || selectedAccountType == nil {
             return "Please fill all information"
         }
         let cleanedPassword = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -122,10 +129,10 @@ class SignUpViewController: UIViewController {
             let lastName = lastNameTextField.text!
             let firstName = firstNameTextField.text!
             let phoneNumber = phoneNumberTextField.text!
-            let gender = genderTextField.text!
-            let birthday = birthdayTextField.text!
+            let gender = selectedGender!
             let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            let accountType = selectedAccountType!
             
             
             // Create the user
@@ -138,8 +145,7 @@ class SignUpViewController: UIViewController {
                     // Create user successfully
                     // Store user's data
                     let db = Firestore.firestore()
-                    
-                    db.collection("users").addDocument(data: ["lastname":lastName, "firstname":firstName, "phonenumber":phoneNumber, "gender":gender, "birthday":birthday, "uid":result!.user.uid]) { (error) in
+                    db.collection("users").document(email).setData(["lastname":lastName, "firstname":firstName, "email":email, "phonenumber":phoneNumber, "gender":gender, "accounttype":accountType, "uid":result!.user.uid]) { (error) in
                         
                         if error != nil {
                             // Show error alert
@@ -172,23 +178,3 @@ class SignUpViewController: UIViewController {
     */
 
 }
-
-extension SignUpViewController: UIPickerViewDelegate, UIPickerViewDataSource {
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return genderList.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return genderList[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedGender = genderList[row]
-        genderTextField.text = selectedGender
-    }
-}
-

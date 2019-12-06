@@ -174,6 +174,9 @@ PODS:
     - FirebaseAnalytics (= 6.1.6)
   - Firebase/CoreOnly (6.13.0):
     - FirebaseCore (= 6.4.0)
+  - Firebase/Database (6.13.0):
+    - Firebase/CoreOnly
+    - FirebaseDatabase (~> 6.1.2)
   - Firebase/Firestore (6.13.0):
     - Firebase/CoreOnly
     - FirebaseFirestore (~> 1.8.0)
@@ -205,6 +208,10 @@ PODS:
     - GoogleUtilities/Logger (~> 6.2)
     - nanopb (~> 0.3.901)
   - FirebaseCoreDiagnosticsInterop (1.1.0)
+  - FirebaseDatabase (6.1.2):
+    - FirebaseAuthInterop (~> 1.0)
+    - FirebaseCore (~> 6.0)
+    - leveldb-library (~> 1.22)
   - FirebaseFirestore (1.8.1):
     - abseil/algorithm (= 0.20190808)
     - abseil/base (= 0.20190808)
@@ -284,6 +291,7 @@ DEPENDENCIES:
   - Firebase/Analytics
   - Firebase/Auth
   - Firebase/Core
+  - Firebase/Database
   - Firebase/Firestore
   - RealmSwift
   - SCLAlertView (~> 0.8)
@@ -299,6 +307,7 @@ SPEC REPOS:
     - FirebaseCore
     - FirebaseCoreDiagnostics
     - FirebaseCoreDiagnosticsInterop
+    - FirebaseDatabase
     - FirebaseFirestore
     - FirebaseInstanceID
     - GoogleAppMeasurement
@@ -324,6 +333,7 @@ SPEC CHECKSUMS:
   FirebaseCore: 307ea2508df730c5865334e41965bd9ea344b0e5
   FirebaseCoreDiagnostics: 511f4f3ed7d440bb69127e8b97c2bc8befae639e
   FirebaseCoreDiagnosticsInterop: e9b1b023157e3a2fc6418b5cb601e79b9af7b3a0
+  FirebaseDatabase: 963515d232ded06f36f6ce830507c94551866170
   FirebaseFirestore: 2e92e977280d63ecbf3fd58bdbfaf9145abb880f
   FirebaseInstanceID: ebd2ea79ee38db0cb5f5167b17a0d387e1cc7b6e
   GoogleAppMeasurement: dfe55efa543e899d906309eaaac6ca26d249862f
@@ -339,6 +349,6 @@ SPEC CHECKSUMS:
   RealmSwift: 02e1f604f7091ec535145055764ca53efa8cdc92
   SCLAlertView: 6a77bb2edfc65e04dbe57725546cb4107a506b85
 
-PODFILE CHECKSUM: d01d5152eb7b9c1ea9847a14faeff0142f92feb0
+PODFILE CHECKSUM: 8d77e37a2434f3d1cc0184b385562f63ad31eb55
 
 COCOAPODS: 1.8.4

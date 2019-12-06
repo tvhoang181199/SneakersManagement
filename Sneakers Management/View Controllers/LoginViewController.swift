@@ -10,13 +10,13 @@ import UIKit
 import SCLAlertView
 import FirebaseAuth
 
+var global_email: String? = nil
+
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
-    
     @IBOutlet weak var loginButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +29,6 @@ class LoginViewController: UIViewController {
         Utilities.styleLoginTextField(emailTextField)
         Utilities.styleLoginTextField(passwordTextField)
         Utilities.styleLoginFilledButton(loginButton)
-        Utilities.styleCancelHollowButton(cancelButton)
     }
     
     @IBAction func loginTapped(_ sender: Any) {
@@ -46,6 +45,7 @@ class LoginViewController: UIViewController {
             }
             else {
                 // Transition to HomeVC
+                global_email = email
                 let story = self.storyboard
                 let vc = story?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
                 vc.modalPresentationStyle = .fullScreen
@@ -54,9 +54,6 @@ class LoginViewController: UIViewController {
         }
     }
     
-    @IBAction func cancelTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
     /*
     // MARK: - Navigation
 
