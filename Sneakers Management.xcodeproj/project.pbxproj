@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17A4190223995CA700802368 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4190123995CA700802368 /* HomeViewController.swift */; };
+		17A7C0D6239FFD9E0059B863 /* icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A7C0D5239FFD9D0059B863 /* icon_2.png */; };
 		17C207C42397F61F00575EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207C32397F61F00575EC7 /* AppDelegate.swift */; };
 		17C207C62397F61F00575EC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207C52397F61F00575EC7 /* SceneDelegate.swift */; };
 		17C207CB2397F61F00575EC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C207C92397F61F00575EC7 /* Main.storyboard */; };
@@ -27,6 +28,7 @@
 /* Begin PBXFileReference section */
 		0CFC6AEAFC85BC9E28A6540B /* Pods_Sneakers_Management.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sneakers_Management.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		17A4190123995CA700802368 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		17A7C0D5239FFD9D0059B863 /* icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_2.png; sourceTree = "<group>"; };
 		17C207C02397F61F00575EC7 /* Sneakers Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sneakers Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C207C32397F61F00575EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C207C52397F61F00575EC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -118,6 +120,7 @@
 			isa = PBXGroup;
 			children = (
 				17F202E1239A343A005BDCD4 /* Nike-mag.png */,
+				17A7C0D5239FFD9D0059B863 /* icon_2.png */,
 			);
 			path = Pictures;
 			sourceTree = "<group>";
@@ -202,6 +205,7 @@
 				17C207D02397F62100575EC7 /* LaunchScreen.storyboard in Resources */,
 				17C207D82397F91600575EC7 /* GoogleService-Info.plist in Resources */,
 				17C207CD2397F62100575EC7 /* Assets.xcassets in Resources */,
+				17A7C0D6239FFD9E0059B863 /* icon_2.png in Resources */,
 				17C207CB2397F61F00575EC7 /* Main.storyboard in Resources */,
 				17F202E2239A343A005BDCD4 /* Nike-mag.png in Resources */,
 			);

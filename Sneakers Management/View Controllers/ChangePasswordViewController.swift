@@ -7,16 +7,76 @@
 //
 
 import UIKit
+import SCLAlertView
+import FirebaseAuth
 
 class ChangePasswordViewController: UIViewController {
-
+    
+    @IBOutlet weak var newPasswordTextField: UITextField!
+    @IBOutlet weak var confirmNewPasswordTextField: UITextField!
+    @IBOutlet weak var changePasswordButton: UIButton!
+    @IBOutlet weak var cancelButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        setUpElements()
         // Do any additional setup after loading the view.
     }
     
-
+    func setUpElements(){
+        Utilities.styleLoginTextField(newPasswordTextField)
+        Utilities.styleLoginTextField(confirmNewPasswordTextField)
+        Utilities.styleFilledButton(changePasswordButton)
+        Utilities.styleCancelHollowButton(cancelButton)
+    }
+    
+    func validateFields() -> String? {
+        if newPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || confirmNewPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
+            return "Please enter your current password and new one"
+        }
+        let cleanedPassword = newPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+        
+        if Utilities.isPasswordValid(cleanedPassword) == false {
+            return "Please make sure your new password is at least 8 charaters, contains a special character and a number"
+        }
+        else {
+            if (newPasswordTextField.text! != confirmNewPasswordTextField.text!) {
+                return "Your confirm password is not matched"
+            }
+        }
+        return nil
+    }
+    
+    @IBAction func changePasswordTapped(_ sender: Any) {
+        // Validate text fields
+        let error = validateFields()
+        
+        if error != nil {
+            SCLAlertView().showError("Error", subTitle: error!)
+        }
+        else {
+            let password = newPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            
+            // Update password
+            let user = Auth.auth().currentUser
+            user?.updatePassword(to: password, completion: { (error) in
+                if let error = error {
+                    SCLAlertView().showError("Error", subTitle: error.localizedDescription)
+                }
+                else {
+                    SCLAlertView().showSuccess("Success", subTitle: "Your password has been changed")
+                    self.dismiss(animated: true, completion: nil)
+                }
+            })
+        }
+        
+    }
+    
+    @IBAction func cancelTapped(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -134,7 +134,6 @@ class SignUpViewController: UIViewController {
             let password = passwordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
             let accountType = selectedAccountType!
             
-            
             // Create the user
             Auth.auth().createUser(withEmail: email, password: password) { (result, err) in
                 if err != nil {
@@ -152,10 +151,19 @@ class SignUpViewController: UIViewController {
                             SCLAlertView().showError("Error", subTitle: error!.localizedDescription)
                         }
                         else {
-                            // Show success alert
-                            SCLAlertView().showSuccess("Success", subTitle: "Your account was created successfully!")
-                            // Go back to StartView
-                            self.dismiss(animated: true, completion: nil)
+                            // Go to HomeView
+                            let appearance = SCLAlertView.SCLAppearance(
+                                showCloseButton: false
+                            )
+                            let alert = SCLAlertView(appearance: appearance)
+                            alert.addButton("OK") { () -> Void in
+                                let story = self.storyboard
+                                let vc = story?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
+                                vc.modalPresentationStyle = .fullScreen
+                                self.present(vc, animated: true)
+                            }
+                            // Show alert view before changing to HomeView
+                            alert.showSuccess("Success", subTitle: "Your account was created successfully")
                         }
                     }
                 }

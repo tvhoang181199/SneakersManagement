@@ -7,12 +7,14 @@
 //
 
 import UIKit
+import SCLAlertView
 import Firebase
 
 class AccountViewController: UIViewController {
     
     @IBOutlet weak var editButton: UIButton!
-    @IBOutlet weak var changepwdButton: UIButton!
+    @IBOutlet weak var changePasswordButton: UIButton!
+    @IBOutlet weak var deleteAccountButton: UIButton!
     @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var nameLabel: UILabel!
@@ -21,7 +23,6 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     
-    let db = Firestore.firestore()
     var lastName: String? = nil
     var firstName: String? = nil
     var phone: String? = nil
@@ -37,31 +38,37 @@ class AccountViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func setUpElements() {
+        Utilities.styleLoginFilledButton(editButton)
+        Utilities.styleFilledButton(changePasswordButton)
+        Utilities.styleDeleteFilledButton(deleteAccountButton)
+        Utilities.styleCancelHollowButton(backButton)
+    }
+    
     func setUserData() {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
-        db.collection("users").whereField("uid", isEqualTo: uid).getDocuments { (snapshot, err) in
+        let email = Auth.auth().currentUser?.email
+        let db = Firestore.firestore()
+        db.collection("users").document(email!).getDocument { (snapshot, err) in
             if let err = err {
                 print(err.localizedDescription)
             }
             else {
-                for document in (snapshot?.documents)! {
-                    if let _lastName = document.data()["lastname"] as? String {
-                        self.lastName = _lastName
-                    }
-                    if let _firstName = document.data()["firstname"] as? String {
-                        self.firstName = _firstName
-                    }
-                    if let _phone = document.data()["phonenumber"] as? String {
-                        self.phone = _phone
-                    }
-                    if let _email = document.data()["email"] as? String {
-                        self.email = _email
-                    }
-                    if let _gender = document.data()["gender"] as? String {
-                        self.gender = _gender
-                    }
-                    if let _type = document.data()["accounttype"] as? String {
-                        self.type = _type
+                for document in ((snapshot?.data())!) {
+                    switch (document.key) {
+                    case "lastname":
+                        self.lastName = document.value as? String
+                    case "firstname":
+                        self.firstName = document.value as? String
+                    case "phonenumber":
+                        self.phone = document.value as? String
+                    case "email":
+                        self.email = document.value as? String
+                    case "gender":
+                        self.gender = document.value as? String
+                    case "accounttype":
+                        self.type = document.value as? String
+                    default:
+                        ()
                     }
                 }
                 
@@ -75,15 +82,36 @@ class AccountViewController: UIViewController {
         }
     }
     
-    func setUpElements() {
-        Utilities.styleLoginFilledButton(editButton)
-        Utilities.styleFilledButton(changepwdButton)
-        Utilities.styleCancelHollowButton(backButton)
+    @IBAction func deleteAccountTapped(_ sender: Any) {
+        let appearance = SCLAlertView.SCLAppearance(
+            showCloseButton: false
+        )
+        let alert = SCLAlertView(appearance: appearance)
+        alert.addButton("Yes") { () -> Void in
+            let user = Auth.auth().currentUser
+            let db = Firestore.firestore()
+            db.collection("users").document((user?.email)!).delete { (error) in
+                if let error = error {
+                    SCLAlertView().showError("Error", subTitle: error.localizedDescription)
+                }
+            }
+            user?.delete(completion: { (error) in
+                if let error = error {
+                    SCLAlertView().showError("Error", subTitle: error.localizedDescription)
+                }
+                else {
+                    self.performSegue(withIdentifier: "unwindToLoginViewSegue", sender: self)
+                }
+            })
+        }
+        alert.addButton("No") {}
+        alert.showWarning("Warning", subTitle: "Your account will be DELETED. Are you sure?")
     }
     
     @IBAction func backTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+        performSegue(withIdentifier: "unwindToHomeViewSegue", sender: self)
     }
+    
     /*
     // MARK: - Navigation
 

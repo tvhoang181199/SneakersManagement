@@ -10,8 +10,6 @@ import UIKit
 import SCLAlertView
 import FirebaseAuth
 
-var global_email: String? = nil
-
 class LoginViewController: UIViewController {
     
     @IBOutlet weak var emailTextField: UITextField!
@@ -45,13 +43,32 @@ class LoginViewController: UIViewController {
             }
             else {
                 // Transition to HomeVC
-                global_email = email
                 let story = self.storyboard
                 let vc = story?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
                 vc.modalPresentationStyle = .fullScreen
                 self.present(vc, animated: true)
             }
         }
+    }
+    
+    @IBAction func forgetPasswordTapped(_ sender: Any) {
+        if emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines) == "" {
+            SCLAlertView().showError("Error", subTitle: "Please enter your email address")
+        }
+        else {
+            let email = emailTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
+            Auth.auth().sendPasswordReset(withEmail: email) { (error) in
+                if let error = error {
+                    SCLAlertView().showError("Error", subTitle: error.localizedDescription)
+                }
+                else {
+                    SCLAlertView().showInfo("Email Sent", subTitle: "Check your email and follow the instructions to reset your password")
+                }
+            }
+        }
+    }
+    
+    @IBAction func unwindToLoginView(segue:UIStoryboardSegue) {
     }
     
     /*

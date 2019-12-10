@@ -27,21 +27,6 @@ class Utilities {
         
     }
     
-    static func styleFilledButton(_ button:UIButton) {
-        // Filled rounded corner style
-        button.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
-        button.layer.cornerRadius = 25.0
-        button.tintColor = UIColor.white
-    }
-    
-    static func styleHollowButton(_ button:UIButton) {
-        // Hollow rounded corner style
-        button.layer.borderWidth = 2
-        button.layer.borderColor = UIColor.init(red: 48/255, green: 100/255, blue: 180/255, alpha: 1).cgColor
-        button.layer.cornerRadius = 25.0
-        button.tintColor = UIColor.init(red: 48/255, green: 100/255, blue: 180/255, alpha: 1)
-    }
-    
     static func styleLoginTextField(_ textfield:UITextField) {
         // Create the bottom line
         let bottomLine = CALayer()
@@ -58,6 +43,21 @@ class Utilities {
         
     }
     
+    static func styleFilledButton(_ button:UIButton) {
+        // Filled rounded corner style
+        button.backgroundColor = UIColor.init(red: 48/255, green: 173/255, blue: 99/255, alpha: 1)
+        button.layer.cornerRadius = 25.0
+        button.tintColor = UIColor.white
+    }
+    
+    static func styleHollowButton(_ button:UIButton) {
+        // Hollow rounded corner style
+        button.layer.borderWidth = 2
+        button.layer.borderColor = UIColor.init(red: 48/255, green: 100/255, blue: 180/255, alpha: 1).cgColor
+        button.layer.cornerRadius = 25.0
+        button.tintColor = UIColor.init(red: 48/255, green: 100/255, blue: 180/255, alpha: 1)
+    }
+    
     static func styleCancelHollowButton(_ button:UIButton) {
         // Hollow rounded corner style
         button.layer.borderWidth = 2
@@ -69,6 +69,13 @@ class Utilities {
     static func styleLoginFilledButton(_ button:UIButton) {
         // Filled rounded corner style
         button.backgroundColor = UIColor.init(red: 48/255, green: 100/255, blue: 180/255, alpha: 1)
+        button.layer.cornerRadius = 25.0
+        button.tintColor = UIColor.white
+    }
+    
+    static func styleDeleteFilledButton(_ button:UIButton) {
+        // Filled rounded corner style
+        button.backgroundColor = UIColor.init(red: 200/255, green: 35/255, blue: 35/255, alpha: 1)
         button.layer.cornerRadius = 25.0
         button.tintColor = UIColor.white
     }

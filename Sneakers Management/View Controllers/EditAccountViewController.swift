@@ -31,7 +31,9 @@ class EditAccountViewController: UIViewController {
     }
     
     func setUpElements() {
-        Utilities.styleHollowButton(saveButton)
+        Utilities.styleTextField(lastNameTextField)
+        Utilities.styleTextField(firstNameTextField)
+        Utilities.styleLoginFilledButton(saveButton)
         Utilities.styleCancelHollowButton(cancelButton)
     }
     
@@ -66,14 +68,25 @@ class EditAccountViewController: UIViewController {
         let gender = selectedGender!
 
         // Update data
+        let email = Auth.auth().currentUser?.email
         let db = Firestore.firestore()
-        let ref = db.collection("users").document(global_email!)
+        let ref = db.collection("users").document(email!)
         ref.updateData(["lastname":lastName, "firstname":firstName, "gender":gender]) { (err) in
             if let err = err {
-                SCLAlertView().showError("Error", subTitle: "\(err.localizedDescription)")
-            } else {
-                self.dismiss(animated: true, completion: nil)
-                SCLAlertView().showSuccess("Success", subTitle: "Your information have been updated!")
+                SCLAlertView().showError("Error", subTitle: err.localizedDescription)
+            }
+            else {
+                let appearance = SCLAlertView.SCLAppearance(
+                    showCloseButton: false
+                )
+                let alert = SCLAlertView(appearance: appearance)
+                alert.addButton("OK") { () -> Void in
+                    let story = self.storyboard
+                    let vc = story?.instantiateViewController(withIdentifier: "AccountVC") as! AccountViewController
+                    vc.modalPresentationStyle = .fullScreen
+                    self.present(vc, animated: false)
+                }
+                alert.showSuccess("Success", subTitle: "Your information have been updated!")
             }
         }
         
