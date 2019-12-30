@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		170B37D023BA57B100A61D4A /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37CF23BA57B100A61D4A /* StoreViewController.swift */; };
+		170B37D223BA57D100A61D4A /* TradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37D123BA57D100A61D4A /* TradingViewController.swift */; };
+		170B37D623BA594300A61D4A /* REViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37D523BA594300A61D4A /* REViewController.swift */; };
 		17A4190223995CA700802368 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4190123995CA700802368 /* HomeViewController.swift */; };
 		17A7C0D6239FFD9E0059B863 /* icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A7C0D5239FFD9D0059B863 /* icon_2.png */; };
 		17C207C42397F61F00575EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207C32397F61F00575EC7 /* AppDelegate.swift */; };
@@ -27,6 +30,9 @@
 
 /* Begin PBXFileReference section */
 		0CFC6AEAFC85BC9E28A6540B /* Pods_Sneakers_Management.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sneakers_Management.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		170B37CF23BA57B100A61D4A /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
+		170B37D123BA57D100A61D4A /* TradingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingViewController.swift; sourceTree = "<group>"; };
+		170B37D523BA594300A61D4A /* REViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REViewController.swift; sourceTree = "<group>"; };
 		17A4190123995CA700802368 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		17A7C0D5239FFD9D0059B863 /* icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_2.png; sourceTree = "<group>"; };
 		17C207C02397F61F00575EC7 /* Sneakers Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sneakers Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -60,6 +66,40 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		170B37CB23BA565800A61D4A /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				17F202E3239A43BB005BDCD4 /* AccountViewController.swift */,
+				17F202E5239AB566005BDCD4 /* EditAccountViewController.swift */,
+				17F202E7239AB57E005BDCD4 /* ChangePasswordViewController.swift */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		170B37CC23BA56AC00A61D4A /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				170B37CF23BA57B100A61D4A /* StoreViewController.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
+		170B37CD23BA56DC00A61D4A /* Trading */ = {
+			isa = PBXGroup;
+			children = (
+				170B37D123BA57D100A61D4A /* TradingViewController.swift */,
+			);
+			path = Trading;
+			sourceTree = "<group>";
+		};
+		170B37CE23BA56E800A61D4A /* Revenue and Expenditure */ = {
+			isa = PBXGroup;
+			children = (
+				170B37D523BA594300A61D4A /* REViewController.swift */,
+			);
+			path = "Revenue and Expenditure";
+			sourceTree = "<group>";
+		};
 		17C207B72397F61F00575EC7 = {
 			isa = PBXGroup;
 			children = (
@@ -101,9 +141,10 @@
 				17C207DD2398138A00575EC7 /* LoginViewController.swift */,
 				17C207E1239815EF00575EC7 /* SignUpViewController.swift */,
 				17A4190123995CA700802368 /* HomeViewController.swift */,
-				17F202E3239A43BB005BDCD4 /* AccountViewController.swift */,
-				17F202E5239AB566005BDCD4 /* EditAccountViewController.swift */,
-				17F202E7239AB57E005BDCD4 /* ChangePasswordViewController.swift */,
+				170B37CB23BA565800A61D4A /* Account */,
+				170B37CC23BA56AC00A61D4A /* Store */,
+				170B37CD23BA56DC00A61D4A /* Trading */,
+				170B37CE23BA56E800A61D4A /* Revenue and Expenditure */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -260,14 +301,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				170B37D023BA57B100A61D4A /* StoreViewController.swift in Sources */,
 				17C207E2239815EF00575EC7 /* SignUpViewController.swift in Sources */,
 				17C207DE2398138A00575EC7 /* LoginViewController.swift in Sources */,
 				17F202E4239A43BB005BDCD4 /* AccountViewController.swift in Sources */,
 				17F202E8239AB57E005BDCD4 /* ChangePasswordViewController.swift in Sources */,
 				17C207C42397F61F00575EC7 /* AppDelegate.swift in Sources */,
 				17F202E6239AB566005BDCD4 /* EditAccountViewController.swift in Sources */,
+				170B37D623BA594300A61D4A /* REViewController.swift in Sources */,
 				17C207C62397F61F00575EC7 /* SceneDelegate.swift in Sources */,
 				17A4190223995CA700802368 /* HomeViewController.swift in Sources */,
+				170B37D223BA57D100A61D4A /* TradingViewController.swift in Sources */,
 				17C207DC239812E900575EC7 /* Ultilities.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

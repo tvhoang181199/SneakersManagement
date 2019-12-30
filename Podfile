@@ -8,9 +8,10 @@ target 'Sneakers Management' do
   # Pods for Sneakers Management
   pod 'SCLAlertView', '~> 0.8'
   pod 'RealmSwift'
-  pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
+  pod 'Firebase/Analytics'
   pod 'Firebase/Firestore'
+  pod 'Firebase/Storage'
 
 end

@@ -23,6 +23,10 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var femaleButton: UIButton!
     @IBOutlet weak var standardButton: UIButton!
     @IBOutlet weak var adminButton: UIButton!
+    @IBOutlet weak var editProfileImageButton: UIButton!
+    @IBOutlet weak var profileImageView: UIImageView!
+    
+    var imagePicker: UIImagePickerController!
     
     @IBOutlet weak var signUpButton: UIButton!
     @IBOutlet weak var cancelButton: UIButton!
@@ -34,6 +38,12 @@ class SignUpViewController: UIViewController {
         super.viewDidLoad()
         
         setUpElements()
+        
+        imagePicker = UIImagePickerController()
+        imagePicker.modalPresentationStyle = .fullScreen
+        imagePicker.allowsEditing = true
+        imagePicker.sourceType = .photoLibrary
+        imagePicker.delegate = self
         // Do any additional setup after loading the view.
     }
     
@@ -48,6 +58,12 @@ class SignUpViewController: UIViewController {
         // Style buttons
         Utilities.styleFilledButton(signUpButton)
         Utilities.styleCancelHollowButton(cancelButton)
+        // Style profile photo
+        Utilities.styleProfileImageView(profileImageView)
+    }
+    
+    @IBAction func editProfileImageTapped(_ sender: Any) {
+        self.present(imagePicker, animated: true, completion: nil)
     }
     
     @IBAction func maleTapped(_ sender: Any) {
@@ -144,13 +160,28 @@ class SignUpViewController: UIViewController {
                     // Create user successfully
                     // Store user's data
                     let db = Firestore.firestore()
-                    db.collection("users").document(email).setData(["lastname":lastName, "firstname":firstName, "email":email, "phonenumber":phoneNumber, "gender":gender, "accounttype":accountType, "uid":result!.user.uid]) { (error) in
+                    db.collection("users").document(email).setData(["lastname":lastName, "firstname":firstName, "email":email, "phonenumber":phoneNumber, "gender":gender, "accounttype":accountType, "photoURL":"gs://sneakers-management.appspot.com/user-profile-image/\(result!.user.uid)", "uid":result!.user.uid]) { (error) in
                         
                         if error != nil {
                             // Show error alert
                             SCLAlertView().showError("Error", subTitle: error!.localizedDescription)
                         }
                         else {
+                            // Upload profile photo
+                            let uid = result!.user.uid
+                            let storageRef = Storage.storage().reference().child("user-profile-image/\(uid)")
+
+                            guard let imageData = self.profileImageView.image!.jpegData(compressionQuality: 1) else { return }
+
+                            let metaData = StorageMetadata()
+                            metaData.contentType = "image/jpeg"
+
+                            storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+                                guard metaData != nil else { return }
+                                storageRef.downloadURL { (url, error) in
+                                    guard url != nil else { return }
+                                }
+                            }
                             // Go to HomeView
                             let appearance = SCLAlertView.SCLAppearance(
                                 showCloseButton: false
@@ -185,4 +216,24 @@ class SignUpViewController: UIViewController {
     }
     */
 
+}
+
+extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        var selectedImage: UIImage?
+        if let editedImage = info[.editedImage] as? UIImage {
+            selectedImage = editedImage
+            self.profileImageView.image = selectedImage!
+            picker.dismiss(animated: true, completion: nil)
+        }
+        else if let originalImage = info[.originalImage] as? UIImage {
+            selectedImage = originalImage
+            self.profileImageView.image = selectedImage!
+            picker.dismiss(animated: true, completion: nil)
+        }
+    }
 }

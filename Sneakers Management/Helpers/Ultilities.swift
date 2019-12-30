@@ -80,6 +80,11 @@ class Utilities {
         button.tintColor = UIColor.white
     }
     
+    static func styleProfileImageView(_ image:UIImageView) {
+        image.layer.cornerRadius = image.bounds.height / 2
+        image.clipsToBounds = true
+    }
+    
     static func isPasswordValid(_ password : String) -> Bool {
         
         let passwordTest = NSPredicate(format: "SELF MATCHES %@", "^(?=.*[a-z])(?=.*[$@$#!%*?&~])[A-Za-z\\d$@$#!%*?&~]{8,}")

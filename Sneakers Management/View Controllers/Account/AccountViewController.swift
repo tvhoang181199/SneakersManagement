@@ -6,6 +6,7 @@
 //  Copyright © 2019 Vũ Hoàng Trịnh. All rights reserved.
 //
 
+import Foundation
 import UIKit
 import SCLAlertView
 import Firebase
@@ -22,6 +23,7 @@ class AccountViewController: UIViewController {
     @IBOutlet weak var emailLabel: UILabel!
     @IBOutlet weak var genderLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
+    @IBOutlet weak var profileImageView: UIImageView!
     
     var lastName: String? = nil
     var firstName: String? = nil
@@ -29,12 +31,14 @@ class AccountViewController: UIViewController {
     var email: String? = nil
     var gender: String? = nil
     var type: String? = nil
+    var profileImageURL: String? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setUpElements()
         setUserData()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -43,6 +47,7 @@ class AccountViewController: UIViewController {
         Utilities.styleFilledButton(changePasswordButton)
         Utilities.styleDeleteFilledButton(deleteAccountButton)
         Utilities.styleCancelHollowButton(backButton)
+        Utilities.styleProfileImageView(profileImageView)
     }
     
     func setUserData() {
@@ -67,8 +72,18 @@ class AccountViewController: UIViewController {
                         self.gender = document.value as? String
                     case "accounttype":
                         self.type = document.value as? String
+                    case "photoURL":
+                        self.profileImageURL = document.value as? String
                     default:
                         ()
+                    }
+                }
+                
+                // Update profile photo
+                let ref = Storage.storage().reference(forURL: self.profileImageURL!)
+                ref.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                    if error == nil {
+                        self.profileImageView.image = UIImage(data: data!)
                     }
                 }
                 
