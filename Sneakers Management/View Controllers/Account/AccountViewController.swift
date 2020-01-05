@@ -13,10 +13,8 @@ import Firebase
 
 class AccountViewController: UIViewController {
     
-    @IBOutlet weak var editButton: UIButton!
     @IBOutlet weak var changePasswordButton: UIButton!
     @IBOutlet weak var deleteAccountButton: UIButton!
-    @IBOutlet weak var backButton: UIButton!
     
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var phoneLabel: UILabel!
@@ -43,10 +41,8 @@ class AccountViewController: UIViewController {
     }
     
     func setUpElements() {
-        Utilities.styleLoginFilledButton(editButton)
         Utilities.styleFilledButton(changePasswordButton)
         Utilities.styleDeleteFilledButton(deleteAccountButton)
-        Utilities.styleCancelHollowButton(backButton)
         Utilities.styleProfileImageView(profileImageView)
     }
     
@@ -58,26 +54,14 @@ class AccountViewController: UIViewController {
                 print(err.localizedDescription)
             }
             else {
-                for document in ((snapshot?.data())!) {
-                    switch (document.key) {
-                    case "lastname":
-                        self.lastName = document.value as? String
-                    case "firstname":
-                        self.firstName = document.value as? String
-                    case "phonenumber":
-                        self.phone = document.value as? String
-                    case "email":
-                        self.email = document.value as? String
-                    case "gender":
-                        self.gender = document.value as? String
-                    case "accounttype":
-                        self.type = document.value as? String
-                    case "photoURL":
-                        self.profileImageURL = document.value as? String
-                    default:
-                        ()
-                    }
-                }
+                // Get data
+                self.lastName = snapshot?.data()!["lastname"] as? String
+                self.firstName = snapshot?.data()!["firstname"] as? String
+                self.phone = snapshot?.data()!["phonenumber"] as? String
+                self.email = snapshot?.data()!["email"] as? String
+                self.gender = snapshot?.data()!["gender"] as? String
+                self.type = snapshot?.data()!["accounttype"] as? String
+                self.profileImageURL = snapshot?.data()!["photoURL"] as? String
                 
                 // Update profile photo
                 let ref = Storage.storage().reference(forURL: self.profileImageURL!)
@@ -110,6 +94,10 @@ class AccountViewController: UIViewController {
                     SCLAlertView().showError("Error", subTitle: error.localizedDescription)
                 }
             }
+            
+            let ref = Storage.storage().reference(forURL: self.profileImageURL!)
+            ref.delete(completion: nil)
+            
             user?.delete(completion: { (error) in
                 if let error = error {
                     SCLAlertView().showError("Error", subTitle: error.localizedDescription)

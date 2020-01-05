@@ -3,21 +3,21 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>27820256585-0sjtvjmg4214e3lg912fiooe5fpe5auf.apps.googleusercontent.com</string>
+	<string>477768116986-nfs4at1g3sdaj6lnb5qhdmita9q78a5e.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.27820256585-0sjtvjmg4214e3lg912fiooe5fpe5auf</string>
+	<string>com.googleusercontent.apps.477768116986-nfs4at1g3sdaj6lnb5qhdmita9q78a5e</string>
 	<key>API_KEY</key>
-	<string>AIzaSyCXuHRA7WHOALwkd30e_FNieJ2lQu54hhw</string>
+	<string>AIzaSyDUFG6cBWplnxPfaLL9eA4LwwAUlvVj2RQ</string>
 	<key>GCM_SENDER_ID</key>
-	<string>27820256585</string>
+	<string>477768116986</string>
 	<key>PLIST_VERSION</key>
 	<string>1</string>
 	<key>BUNDLE_ID</key>
 	<string>tvhoang.Sneakers-Management</string>
 	<key>PROJECT_ID</key>
-	<string>sneakers-management</string>
+	<string>sneakers-management-e47a9</string>
 	<key>STORAGE_BUCKET</key>
-	<string>sneakers-management.appspot.com</string>
+	<string>sneakers-management-e47a9.appspot.com</string>
 	<key>IS_ADS_ENABLED</key>
 	<false></false>
 	<key>IS_ANALYTICS_ENABLED</key>
@@ -29,8 +29,8 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:27820256585:ios:0663bcc87c758f52027e98</string>
+	<string>1:477768116986:ios:dc6b6246a4120390233743</string>
 	<key>DATABASE_URL</key>
-	<string>https://sneakers-management.firebaseio.com</string>
+	<string>https://sneakers-management-e47a9.firebaseio.com</string>
 </dict>
 </plist>

@@ -12,12 +12,12 @@
 		170B37D623BA594300A61D4A /* REViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37D523BA594300A61D4A /* REViewController.swift */; };
 		17A4190223995CA700802368 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4190123995CA700802368 /* HomeViewController.swift */; };
 		17A7C0D6239FFD9E0059B863 /* icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A7C0D5239FFD9D0059B863 /* icon_2.png */; };
+		17ACC13D23C1D7CB008FB568 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17ACC13C23C1D7CB008FB568 /* GoogleService-Info.plist */; };
 		17C207C42397F61F00575EC7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207C32397F61F00575EC7 /* AppDelegate.swift */; };
 		17C207C62397F61F00575EC7 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207C52397F61F00575EC7 /* SceneDelegate.swift */; };
 		17C207CB2397F61F00575EC7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C207C92397F61F00575EC7 /* Main.storyboard */; };
 		17C207CD2397F62100575EC7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 17C207CC2397F62100575EC7 /* Assets.xcassets */; };
 		17C207D02397F62100575EC7 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17C207CE2397F62100575EC7 /* LaunchScreen.storyboard */; };
-		17C207D82397F91600575EC7 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17C207D72397F91600575EC7 /* GoogleService-Info.plist */; };
 		17C207DC239812E900575EC7 /* Ultilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DB239812E900575EC7 /* Ultilities.swift */; };
 		17C207DE2398138A00575EC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DD2398138A00575EC7 /* LoginViewController.swift */; };
 		17C207E2239815EF00575EC7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207E1239815EF00575EC7 /* SignUpViewController.swift */; };
@@ -35,6 +35,7 @@
 		170B37D523BA594300A61D4A /* REViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REViewController.swift; sourceTree = "<group>"; };
 		17A4190123995CA700802368 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		17A7C0D5239FFD9D0059B863 /* icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_2.png; sourceTree = "<group>"; };
+		17ACC13C23C1D7CB008FB568 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17C207C02397F61F00575EC7 /* Sneakers Management.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sneakers Management.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		17C207C32397F61F00575EC7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		17C207C52397F61F00575EC7 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -42,7 +43,6 @@
 		17C207CC2397F62100575EC7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		17C207CF2397F62100575EC7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		17C207D12397F62100575EC7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		17C207D72397F91600575EC7 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		17C207DB239812E900575EC7 /* Ultilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultilities.swift; sourceTree = "<group>"; };
 		17C207DD2398138A00575EC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17C207E1239815EF00575EC7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
@@ -129,7 +129,7 @@
 				17C207D923980E5200575EC7 /* View Controllers */,
 				17F202E0239A3421005BDCD4 /* Pictures */,
 				17C207CC2397F62100575EC7 /* Assets.xcassets */,
-				17C207D72397F91600575EC7 /* GoogleService-Info.plist */,
+				17ACC13C23C1D7CB008FB568 /* GoogleService-Info.plist */,
 				17C207D12397F62100575EC7 /* Info.plist */,
 			);
 			path = "Sneakers Management";
@@ -244,11 +244,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				17C207D02397F62100575EC7 /* LaunchScreen.storyboard in Resources */,
-				17C207D82397F91600575EC7 /* GoogleService-Info.plist in Resources */,
 				17C207CD2397F62100575EC7 /* Assets.xcassets in Resources */,
 				17A7C0D6239FFD9E0059B863 /* icon_2.png in Resources */,
 				17C207CB2397F61F00575EC7 /* Main.storyboard in Resources */,
 				17F202E2239A343A005BDCD4 /* Nike-mag.png in Resources */,
+				17ACC13D23C1D7CB008FB568 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

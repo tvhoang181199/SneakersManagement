@@ -22,10 +22,6 @@ class EditAccountViewController: UIViewController {
     
     var imagePicker: UIImagePickerController!
     
-    
-    @IBOutlet weak var saveButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
-    
     var selectedGender: String? = nil
     
     var lastName: String? = nil
@@ -44,6 +40,8 @@ class EditAccountViewController: UIViewController {
         imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
+        
+        self.HiddenKeyBoard()
         // Do any additional setup after loading the view.
     }
     
@@ -51,9 +49,6 @@ class EditAccountViewController: UIViewController {
         // Style text fields
         Utilities.styleTextField(lastNameTextField)
         Utilities.styleTextField(firstNameTextField)
-        // Style buttons
-        Utilities.styleLoginFilledButton(saveButton)
-        Utilities.styleCancelHollowButton(cancelButton)
         // Style profile image view
         Utilities.styleProfileImageView(profileImageView)
     }
@@ -66,20 +61,11 @@ class EditAccountViewController: UIViewController {
                 print(err.localizedDescription)
             }
             else {
-                for document in ((snapshot?.data())!) {
-                    switch (document.key) {
-                    case "lastname":
-                        self.lastName = document.value as? String
-                    case "firstname":
-                        self.firstName = document.value as? String
-                    case "gender":
-                        self.gender = document.value as? String
-                    case "photoURL":
-                        self.profileImageURL = document.value as? String
-                    default:
-                        ()
-                    }
-                }
+                // Get current data
+                self.lastName = snapshot?.data()!["lastname"] as? String
+                self.firstName = snapshot?.data()!["firstname"] as? String
+                self.gender = snapshot?.data()!["gender"] as? String
+                self.profileImageURL = snapshot?.data()!["photoURL"] as? String
                 
                 // Show profile photo
                 let ref = Storage.storage().reference(forURL: self.profileImageURL!)
@@ -211,5 +197,16 @@ extension EditAccountViewController: UIImagePickerControllerDelegate, UINavigati
             self.profileImageView.image = selectedImage!
             picker.dismiss(animated: true, completion: nil)
         }
+    }
+}
+
+extension EditAccountViewController {
+    func HiddenKeyBoard() {
+        let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textDismissKeyboard))
+        view.addGestureRecognizer(Tap)
+    }
+    
+    @objc func textDismissKeyboard() {
+        view.endEditing(true)
     }
 }

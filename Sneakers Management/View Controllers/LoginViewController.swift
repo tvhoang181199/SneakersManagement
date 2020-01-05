@@ -20,6 +20,9 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
 
         setUpElements()
+        
+        self.HiddenKeyBoard()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -45,8 +48,10 @@ class LoginViewController: UIViewController {
                 // Transition to HomeVC
                 let story = self.storyboard
                 let vc = story?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
-                vc.modalPresentationStyle = .fullScreen
-                self.present(vc, animated: true)
+                let navController = UINavigationController(rootViewController: vc)
+                navController.modalPresentationStyle = .fullScreen
+              //  vc.modalPresentationStyle = .fullScreen
+                self.present(navController, animated: true)
             }
         }
     }
@@ -81,4 +86,15 @@ class LoginViewController: UIViewController {
     }
     */
 
+}
+
+extension LoginViewController {
+    func HiddenKeyBoard() {
+        let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textDismissKeyboard))
+        view.addGestureRecognizer(Tap)
+    }
+    
+    @objc func textDismissKeyboard() {
+        view.endEditing(true)
+    }
 }

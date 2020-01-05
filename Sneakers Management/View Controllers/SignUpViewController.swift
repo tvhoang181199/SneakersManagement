@@ -39,6 +39,11 @@ class SignUpViewController: UIViewController {
         
         setUpElements()
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
+
+        self.HiddenKeyBoard()
+        
         imagePicker = UIImagePickerController()
         imagePicker.modalPresentationStyle = .fullScreen
         imagePicker.allowsEditing = true
@@ -60,6 +65,20 @@ class SignUpViewController: UIViewController {
         Utilities.styleCancelHollowButton(cancelButton)
         // Style profile photo
         Utilities.styleProfileImageView(profileImageView)
+    }
+    
+    @objc func keyboardWillShow(notification: NSNotification) {
+        if let keyboardSize = (notification.userInfo?[UIResponder.keyboardFrameBeginUserInfoKey] as? NSValue)?.cgRectValue {
+            if self.view.frame.origin.y == 0 {
+                self.view.frame.origin.y -= keyboardSize.height
+            }
+        }
+    }
+
+    @objc func keyboardWillHide(notification: NSNotification) {
+        if self.view.frame.origin.y != 0 {
+            self.view.frame.origin.y = 0
+        }
     }
     
     @IBAction func editProfileImageTapped(_ sender: Any) {
@@ -160,7 +179,7 @@ class SignUpViewController: UIViewController {
                     // Create user successfully
                     // Store user's data
                     let db = Firestore.firestore()
-                    db.collection("users").document(email).setData(["lastname":lastName, "firstname":firstName, "email":email, "phonenumber":phoneNumber, "gender":gender, "accounttype":accountType, "photoURL":"gs://sneakers-management.appspot.com/user-profile-image/\(result!.user.uid)", "uid":result!.user.uid]) { (error) in
+                    db.collection("users").document(email).setData(["lastname":lastName, "firstname":firstName, "email":email, "phonenumber":phoneNumber, "gender":gender, "accounttype":accountType, "photoURL":"gs://sneakers-management-e47a9.appspot.com/user-profile-image/\(result!.user.uid)", "uid":result!.user.uid]) { (error) in
                         
                         if error != nil {
                             // Show error alert
@@ -190,8 +209,9 @@ class SignUpViewController: UIViewController {
                             alert.addButton("OK") { () -> Void in
                                 let story = self.storyboard
                                 let vc = story?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
-                                vc.modalPresentationStyle = .fullScreen
-                                self.present(vc, animated: true)
+                                let navController = UINavigationController(rootViewController: vc)
+                                navController.modalPresentationStyle = .fullScreen
+                                self.present(navController, animated: true)
                             }
                             // Show alert view before changing to HomeView
                             alert.showSuccess("Success", subTitle: "Your account was created successfully")
@@ -235,5 +255,16 @@ extension SignUpViewController: UIImagePickerControllerDelegate, UINavigationCon
             self.profileImageView.image = selectedImage!
             picker.dismiss(animated: true, completion: nil)
         }
+    }
+}
+
+extension SignUpViewController {
+    func HiddenKeyBoard() {
+        let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textDismissKeyboard))
+        view.addGestureRecognizer(Tap)
+    }
+    
+    @objc func textDismissKeyboard() {
+        view.endEditing(true)
     }
 }

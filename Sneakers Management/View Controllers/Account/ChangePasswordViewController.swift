@@ -15,12 +15,13 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var newPasswordTextField: UITextField!
     @IBOutlet weak var confirmNewPasswordTextField: UITextField!
     @IBOutlet weak var changePasswordButton: UIButton!
-    @IBOutlet weak var cancelButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setUpElements()
+        
+        self.HiddenKeyBoard()
         // Do any additional setup after loading the view.
     }
     
@@ -28,7 +29,6 @@ class ChangePasswordViewController: UIViewController {
         Utilities.styleLoginTextField(newPasswordTextField)
         Utilities.styleLoginTextField(confirmNewPasswordTextField)
         Utilities.styleFilledButton(changePasswordButton)
-        Utilities.styleCancelHollowButton(cancelButton)
     }
     
     func validateFields() -> String? {
@@ -73,10 +73,6 @@ class ChangePasswordViewController: UIViewController {
         
     }
     
-    @IBAction func cancelTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
-    }
-    
     /*
     // MARK: - Navigation
 
@@ -87,4 +83,15 @@ class ChangePasswordViewController: UIViewController {
     }
     */
 
+}
+
+extension ChangePasswordViewController {
+    func HiddenKeyBoard() {
+        let Tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(textDismissKeyboard))
+        view.addGestureRecognizer(Tap)
+    }
+    
+    @objc func textDismissKeyboard() {
+        view.endEditing(true)
+    }
 }

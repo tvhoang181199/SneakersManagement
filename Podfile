@@ -7,7 +7,6 @@ target 'Sneakers Management' do
 
   # Pods for Sneakers Management
   pod 'SCLAlertView', '~> 0.8'
-  pod 'RealmSwift'
   pod 'Firebase/Auth'
   pod 'Firebase/Core'
   pod 'Firebase/Analytics'
