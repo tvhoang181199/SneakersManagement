@@ -194,7 +194,7 @@
             </objects>
             <point key="canvasLocation" x="4529" y="-1463"/>
         </scene>
-        <!--Sneaker Detail View Controller-->
+        <!--DETAIL-->
         <scene sceneID="83O-38-oMo">
             <objects>
                 <viewController storyboardIdentifier="SneakerDetailVC" id="sWv-3f-XXS" customClass="SneakerDetailViewController" customModule="Sneakers_Management" customModuleProvider="target" sceneMemberID="viewController">
@@ -238,10 +238,17 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="tis-q8-Wqm"/>
                     </view>
-                    <navigationItem key="navigationItem" id="ScW-Uv-bcA"/>
+                    <navigationItem key="navigationItem" title="DETAIL" id="ScW-Uv-bcA">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="edit" id="ngw-kD-jXc">
+                            <connections>
+                                <segue destination="1Bz-w8-mKn" kind="show" identifier="GotoEditSneakerSegue" id="Fsk-c3-JM5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="amountLabel" destination="hlu-E9-44G" id="4oB-yE-Atp"/>
                         <outlet property="categoryLabel" destination="wJ7-ns-aOE" id="m5a-cV-eht"/>
+                        <outlet property="editButton" destination="ngw-kD-jXc" id="v2j-Vm-KjT"/>
                         <outlet property="nameLabel" destination="9rM-7W-tkP" id="vjr-YO-jOJ"/>
                         <outlet property="priceLabel" destination="upe-Uo-hcJ" id="5Lq-Qk-lq2"/>
                         <outlet property="sneakerImageView" destination="gEQ-nv-3La" id="xxk-re-n8L"/>
@@ -267,20 +274,96 @@
             </objects>
             <point key="canvasLocation" x="4529" y="-670"/>
         </scene>
-        <!--View Controller-->
+        <!--EDIT-->
         <scene sceneID="xNc-Z3-SxU">
             <objects>
-                <viewController id="1Bz-w8-mKn" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EditSneakerVC" id="1Bz-w8-mKn" customClass="EditSneakerViewController" customModule="Sneakers_Management" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dPe-Qz-ruG">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="air-jordan-4-royalty-available-696x496.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="Zif-7w-Ton">
+                                <rect key="frame" x="107" y="125" width="200" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uuR-C2-mdX">
+                                <rect key="frame" x="107" y="322" width="200" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                <state key="normal" title="Choose an image">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="50" scale="large" weight="black"/>
+                                </state>
+                                <connections>
+                                    <action selector="editSneakerImageTapped:" destination="1Bz-w8-mKn" eventType="touchUpInside" id="GWi-mD-VuO"/>
+                                    <action selector="editSneakerImageTapped:" destination="SvQ-p7-9vp" eventType="touchUpInside" id="ucE-jS-Vqi"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="mY9-Bc-pY4">
+                                <rect key="frame" x="48" y="377" width="319" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Amount" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="wXe-qi-w4v">
+                                <rect key="frame" x="48" y="436" width="235" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Price" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="06U-ay-HpX">
+                                <rect key="frame" x="48" y="495" width="319" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6TX-Wh-HZh">
+                                <rect key="frame" x="291" y="436" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.4823529412" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button" image="plus.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <action selector="plusButtonTapped:" destination="1Bz-w8-mKn" eventType="touchUpInside" id="9sO-WA-zoc"/>
+                                    <action selector="plusButtonTapped:" destination="SvQ-p7-9vp" eventType="touchUpInside" id="yu2-eZ-H9E"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5el-yN-JOy">
+                                <rect key="frame" x="333" y="436" width="34" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" red="0.14117647059999999" green="0.4823529412" blue="0.62745098040000002" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Button" image="minus.circle.fill" catalog="system">
+                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" configurationType="pointSize" pointSize="30"/>
+                                </state>
+                                <connections>
+                                    <action selector="minusButtonTapped:" destination="1Bz-w8-mKn" eventType="touchUpInside" id="T7w-6l-RPB"/>
+                                    <action selector="minusButtonTapped:" destination="SvQ-p7-9vp" eventType="touchUpInside" id="qLc-Vx-0X1"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="OMa-Jm-ngt"/>
                     </view>
+                    <navigationItem key="navigationItem" title="EDIT" id="Enr-Xb-D25">
+                        <barButtonItem key="rightBarButtonItem" style="done" systemItem="save" id="1dy-Eb-poY">
+                            <connections>
+                                <action selector="saveTapped:" destination="1Bz-w8-mKn" id="BJV-K9-vxU"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="amountTextField" destination="wXe-qi-w4v" id="8fm-zy-4KU"/>
+                        <outlet property="editSneakerImageButton" destination="uuR-C2-mdX" id="fhW-0a-pKn"/>
+                        <outlet property="nameTextField" destination="mY9-Bc-pY4" id="iya-nT-25B"/>
+                        <outlet property="priceTextField" destination="06U-ay-HpX" id="rpt-FB-6gF"/>
+                        <outlet property="sneakerImageView" destination="Zif-7w-Ton" id="vX8-qe-i31"/>
+                        <segue destination="Hbn-MT-PRE" kind="unwind" identifier="unwindToStoreViewSegue" unwindAction="unwindToStoreViewWithSegue:" id="0Kw-RC-Yrb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="328-9r-sZ0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Hbn-MT-PRE" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="5677" y="-670"/>
+            <point key="canvasLocation" x="6842" y="848"/>
         </scene>
         <!--STORE-->
         <scene sceneID="Otf-v6-hYO">

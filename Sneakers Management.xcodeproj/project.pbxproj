@@ -22,6 +22,7 @@
 		17C207DC239812E900575EC7 /* Ultilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DB239812E900575EC7 /* Ultilities.swift */; };
 		17C207DE2398138A00575EC7 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207DD2398138A00575EC7 /* LoginViewController.swift */; };
 		17C207E2239815EF00575EC7 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17C207E1239815EF00575EC7 /* SignUpViewController.swift */; };
+		17E6BF6D23C4C42F005189F5 /* EditSneakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E6BF6C23C4C42F005189F5 /* EditSneakerViewController.swift */; };
 		17F202E2239A343A005BDCD4 /* Nike-mag.png in Resources */ = {isa = PBXBuildFile; fileRef = 17F202E1239A343A005BDCD4 /* Nike-mag.png */; };
 		17F202E4239A43BB005BDCD4 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F202E3239A43BB005BDCD4 /* AccountViewController.swift */; };
 		17F202E6239AB566005BDCD4 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F202E5239AB566005BDCD4 /* EditAccountViewController.swift */; };
@@ -50,6 +51,7 @@
 		17C207DB239812E900575EC7 /* Ultilities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ultilities.swift; sourceTree = "<group>"; };
 		17C207DD2398138A00575EC7 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		17C207E1239815EF00575EC7 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		17E6BF6C23C4C42F005189F5 /* EditSneakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditSneakerViewController.swift; sourceTree = "<group>"; };
 		17F202E1239A343A005BDCD4 /* Nike-mag.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Nike-mag.png"; sourceTree = "<group>"; };
 		17F202E3239A43BB005BDCD4 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		17F202E5239AB566005BDCD4 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
@@ -88,6 +90,7 @@
 				170B37CF23BA57B100A61D4A /* StoreViewController.swift */,
 				17FFD4BF23C3A4030096E793 /* AddSneakerViewController.swift */,
 				173994E423C4851200B188F2 /* SneakerDetailViewController.swift */,
+				17E6BF6C23C4C42F005189F5 /* EditSneakerViewController.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 				17FFD4C023C3A4030096E793 /* AddSneakerViewController.swift in Sources */,
 				17C207DE2398138A00575EC7 /* LoginViewController.swift in Sources */,
 				17F202E4239A43BB005BDCD4 /* AccountViewController.swift in Sources */,
+				17E6BF6D23C4C42F005189F5 /* EditSneakerViewController.swift in Sources */,
 				17F202E8239AB57E005BDCD4 /* ChangePasswordViewController.swift in Sources */,
 				17C207C42397F61F00575EC7 /* AppDelegate.swift in Sources */,
 				17F202E6239AB566005BDCD4 /* EditAccountViewController.swift in Sources */,

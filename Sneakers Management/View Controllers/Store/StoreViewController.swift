@@ -35,7 +35,7 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     var sneakerList = [sneakerInfo]()
     var count = 0
     var selectedCellRow = 0
-    
+
     let db = Firestore.firestore()
     let email = Auth.auth().currentUser?.email
     
@@ -116,7 +116,7 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
                             let photoURL = info[4] as! String
                             
                             let ref = Storage.storage().reference(forURL: photoURL)
-                            ref.getData(maxSize: 1*1024*1024) { (data, err) in
+                            ref.getData(maxSize: 1*2048*2048) { (data, err) in
                                 if let err = err {
                                     SCLAlertView().showError("Error", subTitle: err.localizedDescription)
                                 }
@@ -154,13 +154,13 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "GotoSneakerDetailSegue" {
             let vc = segue.destination as! SneakerDetailViewController
-            if let indexPath = collectionView?.indexPathsForSelectedItems?.first {
-                vc.name = sneakerList[indexPath.row].name!
-                vc.amount = sneakerList[indexPath.row].amount!
-                vc.price = sneakerList[indexPath.row].price!
-                vc.category = sneakerList[indexPath.row].category!
-                vc.image = sneakerList[indexPath.row].image!
-            }
+            guard let indexPath = collectionView?.indexPathsForSelectedItems?.first else { return }
+              
+            vc.name = sneakerList[indexPath.row].name!
+            vc.amount = sneakerList[indexPath.row].amount!
+            vc.price = sneakerList[indexPath.row].price!
+            vc.category = sneakerList[indexPath.row].category!
+            vc.image = sneakerList[indexPath.row].image!
         }
     }
     

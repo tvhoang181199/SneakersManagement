@@ -65,7 +65,7 @@ class AccountViewController: UIViewController {
                 
                 // Update profile photo
                 let ref = Storage.storage().reference(forURL: self.profileImageURL!)
-                ref.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                ref.getData(maxSize: 1 * 2048 * 2048) { (data, error) in
                     if error == nil {
                         self.profileImageView.image = UIImage(data: data!)
                     }
