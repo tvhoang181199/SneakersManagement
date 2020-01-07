@@ -33,7 +33,7 @@ class EditAccountViewController: UIViewController {
         super.viewDidLoad()
 
         setUpElements()
-        setUserData()
+        setUpData()
         
         imagePicker = UIImagePickerController()
         imagePicker.modalPresentationStyle = .fullScreen
@@ -53,7 +53,7 @@ class EditAccountViewController: UIViewController {
         Utilities.styleProfileImageView(profileImageView)
     }
     
-    func setUserData() {
+    func setUpData() {
         let email = Auth.auth().currentUser?.email
         let db = Firestore.firestore()
         db.collection("users").document(email!).getDocument { (snapshot, err) in
@@ -157,16 +157,16 @@ class EditAccountViewController: UIViewController {
                 )
                 let alert = SCLAlertView(appearance: appearance)
                 alert.addButton("OK") { () -> Void in
-                    self.performSegue(withIdentifier: "unwindToHomeViewSegue", sender: (Any).self)
+                    let story = self.storyboard
+                    let vc = story?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
+                    let navController = UINavigationController(rootViewController: vc)
+                    navController.modalPresentationStyle = .fullScreen
+                    self.present(navController, animated: true)
                 }
                 alert.showSuccess("Success", subTitle: "Your information have been updated!")
             }
         }
         
-    }
-    
-    @IBAction func cancelTapped(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
     }
     /*
     // MARK: - Navigation

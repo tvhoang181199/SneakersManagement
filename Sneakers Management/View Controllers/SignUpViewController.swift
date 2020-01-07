@@ -113,11 +113,11 @@ class SignUpViewController: UIViewController {
         if adminButton.isSelected {
             adminButton.isSelected = false
             standardButton.isSelected = true
-            selectedAccountType = "Stardard"
+            selectedAccountType = "Standard"
         }
         else {
             standardButton.isSelected = true
-            selectedAccountType = "Stardard"
+            selectedAccountType = "Standard"
         }
     }
     

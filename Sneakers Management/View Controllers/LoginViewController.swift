@@ -50,7 +50,6 @@ class LoginViewController: UIViewController {
                 let vc = story?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
                 let navController = UINavigationController(rootViewController: vc)
                 navController.modalPresentationStyle = .fullScreen
-              //  vc.modalPresentationStyle = .fullScreen
                 self.present(navController, animated: true)
             }
         }

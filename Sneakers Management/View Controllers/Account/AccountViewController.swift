@@ -35,7 +35,7 @@ class AccountViewController: UIViewController {
         super.viewDidLoad()
         
         setUpElements()
-        setUserData()
+        setUpData()
         
         // Do any additional setup after loading the view.
     }
@@ -46,7 +46,7 @@ class AccountViewController: UIViewController {
         Utilities.styleProfileImageView(profileImageView)
     }
     
-    func setUserData() {
+    func setUpData() {
         let email = Auth.auth().currentUser?.email
         let db = Firestore.firestore()
         db.collection("users").document(email!).getDocument { (snapshot, err) in

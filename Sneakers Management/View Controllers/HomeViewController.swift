@@ -12,10 +12,59 @@ import Firebase
 
 class HomeViewController: UIViewController {
     
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var hiLabel: UILabel!
+    @IBOutlet weak var storeButton: UIButton!
+    @IBOutlet weak var tradingButton: UIButton!
+    @IBOutlet weak var REButton: UIButton!
+    @IBOutlet weak var accountButton: UIButton!
+    
+    var lastName: String? = nil
+    var profileImageURL: String? = nil
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setUpElements()
+        setUpData()
+        
         // Do any additional setup after loading the view.
+    }
+    
+    func setUpElements() {
+        let attriutes = [NSAttributedString.Key.font: UIFont(name: "Helvetica", size: 25)]
+        navigationController?.navigationBar.titleTextAttributes = attriutes as [NSAttributedString.Key : Any]
+        Utilities.styleProfileImageView(profileImageView)
+        storeButton.layer.cornerRadius = 10
+        tradingButton.layer.cornerRadius = 10
+        REButton.layer.cornerRadius = 10
+        accountButton.layer.cornerRadius = 10
+    }
+    
+    func setUpData() {
+        let email = Auth.auth().currentUser?.email
+        let db = Firestore.firestore()
+        db.collection("users").document(email!).getDocument { (snapshot, err) in
+            if let err = err {
+                print(err.localizedDescription)
+            }
+            else {
+                // Get data
+                self.lastName = snapshot?.data()!["lastname"] as? String
+                self.profileImageURL = snapshot?.data()!["photoURL"] as? String
+                
+                // Update profile photo
+                let ref = Storage.storage().reference(forURL: self.profileImageURL!)
+                ref.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                    if error == nil {
+                        self.profileImageView.image = UIImage(data: data!)
+                    }
+                }
+                
+                // Update labels
+                self.hiLabel.text = "Hi, \(self.lastName!)!"
+            }
+        }
     }
     
     @IBAction func unwindToHomeView(segue:UIStoryboardSegue) {

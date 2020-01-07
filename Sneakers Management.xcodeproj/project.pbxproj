@@ -10,6 +10,7 @@
 		170B37D023BA57B100A61D4A /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37CF23BA57B100A61D4A /* StoreViewController.swift */; };
 		170B37D223BA57D100A61D4A /* TradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37D123BA57D100A61D4A /* TradingViewController.swift */; };
 		170B37D623BA594300A61D4A /* REViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37D523BA594300A61D4A /* REViewController.swift */; };
+		173994E523C4851200B188F2 /* SneakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173994E423C4851200B188F2 /* SneakerDetailViewController.swift */; };
 		17A4190223995CA700802368 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4190123995CA700802368 /* HomeViewController.swift */; };
 		17A7C0D6239FFD9E0059B863 /* icon_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 17A7C0D5239FFD9D0059B863 /* icon_2.png */; };
 		17ACC13D23C1D7CB008FB568 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 17ACC13C23C1D7CB008FB568 /* GoogleService-Info.plist */; };
@@ -25,6 +26,8 @@
 		17F202E4239A43BB005BDCD4 /* AccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F202E3239A43BB005BDCD4 /* AccountViewController.swift */; };
 		17F202E6239AB566005BDCD4 /* EditAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F202E5239AB566005BDCD4 /* EditAccountViewController.swift */; };
 		17F202E8239AB57E005BDCD4 /* ChangePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17F202E7239AB57E005BDCD4 /* ChangePasswordViewController.swift */; };
+		17FFD4C023C3A4030096E793 /* AddSneakerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FFD4BF23C3A4030096E793 /* AddSneakerViewController.swift */; };
+		17FFD4C223C3B2710096E793 /* air-jordan-4-royalty-available-696x496.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 17FFD4C123C3B2700096E793 /* air-jordan-4-royalty-available-696x496.jpg */; };
 		2AB3A2708A0FF5E94914CF3E /* Pods_Sneakers_Management.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0CFC6AEAFC85BC9E28A6540B /* Pods_Sneakers_Management.framework */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +36,7 @@
 		170B37CF23BA57B100A61D4A /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		170B37D123BA57D100A61D4A /* TradingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingViewController.swift; sourceTree = "<group>"; };
 		170B37D523BA594300A61D4A /* REViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REViewController.swift; sourceTree = "<group>"; };
+		173994E423C4851200B188F2 /* SneakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDetailViewController.swift; sourceTree = "<group>"; };
 		17A4190123995CA700802368 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		17A7C0D5239FFD9D0059B863 /* icon_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_2.png; sourceTree = "<group>"; };
 		17ACC13C23C1D7CB008FB568 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -50,6 +54,8 @@
 		17F202E3239A43BB005BDCD4 /* AccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountViewController.swift; sourceTree = "<group>"; };
 		17F202E5239AB566005BDCD4 /* EditAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditAccountViewController.swift; sourceTree = "<group>"; };
 		17F202E7239AB57E005BDCD4 /* ChangePasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChangePasswordViewController.swift; sourceTree = "<group>"; };
+		17FFD4BF23C3A4030096E793 /* AddSneakerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSneakerViewController.swift; sourceTree = "<group>"; };
+		17FFD4C123C3B2700096E793 /* air-jordan-4-royalty-available-696x496.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "air-jordan-4-royalty-available-696x496.jpg"; sourceTree = "<group>"; };
 		8C4B0AF1957B026F191524D3 /* Pods-Sneakers Management.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakers Management.release.xcconfig"; path = "Target Support Files/Pods-Sneakers Management/Pods-Sneakers Management.release.xcconfig"; sourceTree = "<group>"; };
 		933105944BAFFFE754F91342 /* Pods-Sneakers Management.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sneakers Management.debug.xcconfig"; path = "Target Support Files/Pods-Sneakers Management/Pods-Sneakers Management.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -80,6 +86,8 @@
 			isa = PBXGroup;
 			children = (
 				170B37CF23BA57B100A61D4A /* StoreViewController.swift */,
+				17FFD4BF23C3A4030096E793 /* AddSneakerViewController.swift */,
+				173994E423C4851200B188F2 /* SneakerDetailViewController.swift */,
 			);
 			path = Store;
 			sourceTree = "<group>";
@@ -161,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				17F202E1239A343A005BDCD4 /* Nike-mag.png */,
+				17FFD4C123C3B2700096E793 /* air-jordan-4-royalty-available-696x496.jpg */,
 				17A7C0D5239FFD9D0059B863 /* icon_2.png */,
 			);
 			path = Pictures;
@@ -245,6 +254,7 @@
 			files = (
 				17C207D02397F62100575EC7 /* LaunchScreen.storyboard in Resources */,
 				17C207CD2397F62100575EC7 /* Assets.xcassets in Resources */,
+				17FFD4C223C3B2710096E793 /* air-jordan-4-royalty-available-696x496.jpg in Resources */,
 				17A7C0D6239FFD9E0059B863 /* icon_2.png in Resources */,
 				17C207CB2397F61F00575EC7 /* Main.storyboard in Resources */,
 				17F202E2239A343A005BDCD4 /* Nike-mag.png in Resources */,
@@ -303,6 +313,7 @@
 			files = (
 				170B37D023BA57B100A61D4A /* StoreViewController.swift in Sources */,
 				17C207E2239815EF00575EC7 /* SignUpViewController.swift in Sources */,
+				17FFD4C023C3A4030096E793 /* AddSneakerViewController.swift in Sources */,
 				17C207DE2398138A00575EC7 /* LoginViewController.swift in Sources */,
 				17F202E4239A43BB005BDCD4 /* AccountViewController.swift in Sources */,
 				17F202E8239AB57E005BDCD4 /* ChangePasswordViewController.swift in Sources */,
@@ -313,6 +324,7 @@
 				17A4190223995CA700802368 /* HomeViewController.swift in Sources */,
 				170B37D223BA57D100A61D4A /* TradingViewController.swift in Sources */,
 				17C207DC239812E900575EC7 /* Ultilities.swift in Sources */,
+				173994E523C4851200B188F2 /* SneakerDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
