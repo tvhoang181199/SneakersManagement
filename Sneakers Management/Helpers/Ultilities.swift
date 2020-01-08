@@ -80,6 +80,13 @@ class Utilities {
         button.tintColor = UIColor.white
     }
     
+    static func stylePaymentButton(_ button:UIButton) {
+        // Filled rounded corner style
+        button.backgroundColor = UIColor.init(red: 255/255, green: 224/255, blue: 102/255, alpha: 1)
+        button.layer.cornerRadius = 25.0
+        button.tintColor = UIColor.white
+    }
+    
     static func styleProfileImageView(_ image:UIImageView) {
         image.layer.cornerRadius = image.bounds.height / 2
         image.clipsToBounds = true

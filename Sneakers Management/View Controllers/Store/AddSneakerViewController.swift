@@ -128,18 +128,29 @@ class AddSneakerViewController: UIViewController, UITextFieldDelegate {
         else {
             // Get count from category "All"
             db.collection("categories").document("All").getDocument { (snapshot, err) in
-                self.countAll = snapshot!.data()!["count"]  as! Int
+                if let snapshot = snapshot, snapshot.exists {
+                    self.countAll = snapshot.data()!["count"]  as! Int
+                }
+                else {
+                    self.db.collection("categories").document("All").setData(["count":self.countAll])
+                }
             }
-            db.collection("categories").document(category!).getDocument { (snapshot, err) in
-                self.count = snapshot!.data()!["count"]  as! Int
+            // Get count from others
+            db.collection("categories").document(self.category!).getDocument { (snapshot, err) in
+                if let snapshot = snapshot, snapshot.exists {
+                    self.count = snapshot.data()!["count"]  as! Int
+                }
+                else {
+                    self.db.collection("categories").document(self.category!).setData(["count":self.count])
+                }
             }
             
-            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+            DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1) {
                 self.db.collection("categories").document("All").updateData(["sneaker\(self.countAll)":[self.nameTextField.text!, self.amount, (self.priceTextField.text! as NSString).integerValue, self.category!, "gs://sneakers-management-e47a9.appspot.com/sneaker-image/\(self.nameTextField.text!)"], "count":(self.countAll + 1)])
                 
                 if self.category != "All" {
                     self.db.collection("categories").document(self.category!).updateData(["sneaker\(self.count)":[self.nameTextField.text!, self.amount, (self.priceTextField.text! as NSString).integerValue, self.category!, "gs://sneakers-management-e47a9.appspot.com/sneaker-image/\(self.nameTextField.text!)"], "count":(self.count + 1)]) { (error) in
-
+                        
                         if error != nil {
                             // Show error alert
                             SCLAlertView().showError("Error", subTitle: error!.localizedDescription)
@@ -147,19 +158,19 @@ class AddSneakerViewController: UIViewController, UITextFieldDelegate {
                         else {
                             // Upload sneaker photo
                             let storageRef = Storage.storage().reference().child("sneaker-image/\(self.nameTextField.text!)")
-
+                            
                             guard let imageData = self.sneakerImageView.image!.jpegData(compressionQuality: 1) else { return }
-
+                            
                             let metaData = StorageMetadata()
                             metaData.contentType = "image/jpeg"
-
+                            
                             storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
                                 guard metaData != nil else { return }
                                 storageRef.downloadURL { (url, error) in
                                     guard url != nil else { return }
                                 }
                             }
-
+                            
                             // Back to Store View
                             let appearance = SCLAlertView.SCLAppearance(
                                 showCloseButton: false

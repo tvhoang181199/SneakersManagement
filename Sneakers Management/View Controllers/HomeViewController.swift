@@ -9,6 +9,7 @@
 import UIKit
 import FirebaseAuth
 import Firebase
+import SCLAlertView
 
 class HomeViewController: UIViewController {
     
@@ -22,13 +23,31 @@ class HomeViewController: UIViewController {
     var lastName: String? = nil
     var profileImageURL: String? = nil
     
+    let db = Firestore.firestore()
+    let email = Auth.auth().currentUser?.email
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        checkRole()
         setUpElements()
         setUpData()
         
         // Do any additional setup after loading the view.
+    }
+    
+    func checkRole() {
+        db.collection("users").document(email!).getDocument { (snapshot, err) in
+            if let err = err {
+                SCLAlertView().showError("Error", subTitle: err.localizedDescription)
+            }
+            else {
+                if (snapshot?.data()!["accounttype"] as? String) == "Standard" {
+                    self.tradingButton.isEnabled = false
+                    self.REButton.isEnabled = false
+                }
+            }
+        }
     }
     
     func setUpElements() {
@@ -55,12 +74,14 @@ class HomeViewController: UIViewController {
                 
                 // Update profile photo
                 let ref = Storage.storage().reference(forURL: self.profileImageURL!)
-                ref.getData(maxSize: 1 * 1024 * 1024) { (data, error) in
+                ref.getData(maxSize: 1 * 2048 * 2048) { (data, error) in
                     if error == nil {
-                        self.profileImageView.image = UIImage(data: data!)
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                            self.profileImageView.image = UIImage(data: data!)!
+                        }
                     }
                 }
-                
+
                 // Update labels
                 self.hiLabel.text = "Hi, \(self.lastName!)!"
             }

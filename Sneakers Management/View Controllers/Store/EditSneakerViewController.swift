@@ -35,11 +35,7 @@ class EditSneakerViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        sneakerImageView.image = image
-        nameTextField.text = name
-        amountTextField.text = "\(amount)"
-        priceTextField.text = "\(price)"
-        
+        setupData()
 
         imagePicker = UIImagePickerController()
         imagePicker.modalPresentationStyle = .fullScreen
@@ -54,6 +50,13 @@ class EditSneakerViewController: UIViewController, UITextFieldDelegate {
         
         self.HiddenKeyBoard()
         // Do any additional setup after loading the view.
+    }
+    
+    func setupData() {
+        sneakerImageView.image = image
+        nameTextField.text = name
+        amountTextField.text = "\(amount)"
+        priceTextField.text = "\(price)"
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {

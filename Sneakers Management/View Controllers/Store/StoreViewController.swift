@@ -43,13 +43,13 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         super.viewDidLoad()
         
         checkRole()
-        
         setImageList()
         
         collectionView.delegate = self
         collectionView.dataSource = self
         
         collectionView.reloadData()
+        
         // Do any additional setup after loading the view.
     }
     
@@ -90,7 +90,7 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     @IBAction func filterTapped(_ sender: Any) {
         setImageList()
-        self.collectionView.reloadData()
+        collectionView.reloadData()
     }
     
     func setImageList() {
@@ -121,9 +121,11 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
                                     SCLAlertView().showError("Error", subTitle: err.localizedDescription)
                                 }
                                 else {
-                                    let sneaker = sneakerInfo(name: _name, category: _category, amount: _amount, price: _price, image: UIImage(data: data!))
-                                    self.sneakerList.append(sneaker)
-                                    self.collectionView.reloadData()
+                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                        let sneaker = sneakerInfo(name: _name, category: _category, amount: _amount, price: _price, image: UIImage(data: data!))
+                                        self.sneakerList.append(sneaker)
+                                        self.collectionView.reloadData()
+                                    }
                                 }
                             }
                         }
@@ -131,7 +133,7 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
                 }
             }
         }
-        self.collectionView.reloadData()
+        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

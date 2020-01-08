@@ -201,20 +201,23 @@ class SignUpViewController: UIViewController {
                                     guard url != nil else { return }
                                 }
                             }
-                            // Go to HomeView
-                            let appearance = SCLAlertView.SCLAppearance(
-                                showCloseButton: false
-                            )
-                            let alert = SCLAlertView(appearance: appearance)
-                            alert.addButton("OK") { () -> Void in
-                                let story = self.storyboard
-                                let vc = story?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
-                                let navController = UINavigationController(rootViewController: vc)
-                                navController.modalPresentationStyle = .fullScreen
-                                self.present(navController, animated: true)
+                            
+                            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                                // Go to HomeView
+                                let appearance = SCLAlertView.SCLAppearance(
+                                    showCloseButton: false
+                                )
+                                let alert = SCLAlertView(appearance: appearance)
+                                alert.addButton("OK") { () -> Void in
+                                    let story = self.storyboard
+                                    let vc = story?.instantiateViewController(withIdentifier: "HomeVC") as! HomeViewController
+                                    let navController = UINavigationController(rootViewController: vc)
+                                    navController.modalPresentationStyle = .fullScreen
+                                    self.present(navController, animated: true)
+                                }
+                                // Show alert view before changing to HomeView
+                                alert.showSuccess("Success", subTitle: "Your account was created successfully")
                             }
-                            // Show alert view before changing to HomeView
-                            alert.showSuccess("Success", subTitle: "Your account was created successfully")
                         }
                     }
                 }

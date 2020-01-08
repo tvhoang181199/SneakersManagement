@@ -14,6 +14,7 @@ import SCLAlertView
 class SneakerDetailViewController: UIViewController {
 
     @IBOutlet weak var editButton: UIBarButtonItem!
+    @IBOutlet weak var paymentButton: UIButton!
     @IBOutlet weak var sneakerImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var amountLabel: UILabel!
@@ -35,14 +36,22 @@ class SneakerDetailViewController: UIViewController {
         super.viewDidLoad()
         
         checkRole()
+        setupElements()
+        setupData()
         
+        // Do any additional setup after loading the view.
+    }
+    
+    func setupData() {
         nameLabel.text = "Name:   \(name)"
         amountLabel.text = "Amount:   \(amount)"
         priceLabel.text =  "Price:   $\(price)"
         categoryLabel.text = "Category:   \(category)"
         sneakerImageView.image = image
-
-        // Do any additional setup after loading the view.
+    }
+    
+    func setupElements() {
+        Utilities.stylePaymentButton(paymentButton)
     }
     
     func checkRole() {
@@ -53,6 +62,7 @@ class SneakerDetailViewController: UIViewController {
             else {
                 if (snapshot?.data()!["accounttype"] as? String) == "Standard" {
                     self.editButton.isEnabled = false
+                    self.paymentButton.isEnabled = false
                 }
             }
         }
@@ -68,6 +78,7 @@ class SneakerDetailViewController: UIViewController {
                 let _name = info[0] as! String
                 if _name == name {
                     self.indexAll = i
+                    break
                 }
             }
         }
@@ -81,6 +92,7 @@ class SneakerDetailViewController: UIViewController {
                     let _name = info[0] as! String
                     if _name == name {
                         self.indexOther = i
+                        break
                     }
                 }
             }
@@ -93,18 +105,32 @@ class SneakerDetailViewController: UIViewController {
             
             getIndex(name, category)
             
-
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 vc.indexAll = self.indexAll
                 vc.indexOther = self.indexOther
             }
-            vc.name = self.name
-            vc.amount = self.amount
-            vc.price = self.price
-            vc.category = self.category
-            vc.image = self.image
+            vc.name = name
+            vc.amount = amount
+            vc.price = price
+            vc.category = category
+            vc.image = image
 
+        }
+        else if segue.identifier == "GotoPaymentSegue" {
+            let vc = segue.destination as! PaymentViewController
+            
+            getIndex(name, category)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                vc.indexAll = self.indexAll
+                vc.indexOther = self.indexOther
+            }
+            
+            vc.name = name
+            vc.amountStock = amount
+            vc.price = price
+            vc.category = category
+            vc.image = image
         }
     }
     /*
