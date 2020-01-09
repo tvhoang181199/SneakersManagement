@@ -20,6 +20,7 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var phoneTextField: UITextField!
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var totalLabel: UILabel!
+    @IBOutlet weak var paymentButton: UIButton!
     
     var indexAll: Int = -1
     var indexOther: Int = -1
@@ -29,6 +30,7 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
     var amount: Int = 1
     var price: Int = 0
     var category: String = ""
+    var today: String = ""
     var image = UIImage()
     
     let db = Firestore.firestore()
@@ -36,6 +38,7 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupElements()
         setUpdata()
         
         amountTextField.delegate = self
@@ -47,6 +50,10 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
         // Do any additional setup after loading the view.
     }
     
+    func setupElements() {
+        Utilities.stylePaymentButton(paymentButton)
+    }
+    
     func setUpdata() {
         nameLabel.text = name
         amountTextField.text = "\(amount)"
@@ -56,7 +63,7 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
         let date = Date()
         let formatter = DateFormatter()
         formatter.dateFormat = "MMM dd, yyyy"
-        let today = formatter.string(from: date)
+        today = formatter.string(from: date)
         dateLabel.text = "Date:   \(today)"
     }
     
@@ -86,8 +93,8 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func minusButtonTapped(_ sender: Any) {
         amount = (amountTextField.text! as NSString).integerValue
-        if (amount == 0){
-            SCLAlertView().showError("Error", subTitle: "Amount must be equal or greater than 0!")
+        if (amount == 1){
+            SCLAlertView().showError("Error", subTitle: "Amount must be greater than 0!")
         }
         else {
             amount -= 1
@@ -106,6 +113,9 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
         }
         else if (amountTextField.text! as NSString).integerValue > amountStock {
             SCLAlertView().showError("Error", subTitle: "Not enough!")
+        }
+        else if (amountTextField.text! as NSString).integerValue == 0 {
+            SCLAlertView().showError("Error", subTitle: "Amount must be greater than 0!")
         }
         else {
             // Update stock
@@ -127,7 +137,7 @@ class PaymentViewController: UIViewController, UITextFieldDelegate {
             }
             // Create new payment
             DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                self.db.collection("trading").document("payment").updateData(["payment\(self.count)":[self.customerTextField.text!, self.phoneTextField.text!, self.name, self.amount, self.dateLabel.text!], "count":(self.count + 1)]) { (error) in
+                self.db.collection("trading").document("payment").updateData(["payment\(self.count)":[self.customerTextField.text!, self.phoneTextField.text!, self.name, self.amount, (self.amount * self.price), self.today], "count":(self.count + 1)]) { (error) in
                     
                     if error != nil {
                         // Show error alert

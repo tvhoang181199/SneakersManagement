@@ -10,6 +10,9 @@
 		170B37D023BA57B100A61D4A /* StoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37CF23BA57B100A61D4A /* StoreViewController.swift */; };
 		170B37D223BA57D100A61D4A /* TradingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37D123BA57D100A61D4A /* TradingViewController.swift */; };
 		170B37D623BA594300A61D4A /* REViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 170B37D523BA594300A61D4A /* REViewController.swift */; };
+		17278D0E23C6E17E005D1F56 /* outcome.png in Resources */ = {isa = PBXBuildFile; fileRef = 17278D0B23C6E17E005D1F56 /* outcome.png */; };
+		17278D0F23C6E17E005D1F56 /* trading.png in Resources */ = {isa = PBXBuildFile; fileRef = 17278D0C23C6E17E005D1F56 /* trading.png */; };
+		17278D1023C6E17E005D1F56 /* income.png in Resources */ = {isa = PBXBuildFile; fileRef = 17278D0D23C6E17E005D1F56 /* income.png */; };
 		173994E523C4851200B188F2 /* SneakerDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173994E423C4851200B188F2 /* SneakerDetailViewController.swift */; };
 		174A814D23C58B7A001B1000 /* PaymentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 174A814C23C58B7A001B1000 /* PaymentViewController.swift */; };
 		17A4190223995CA700802368 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17A4190123995CA700802368 /* HomeViewController.swift */; };
@@ -38,6 +41,9 @@
 		170B37CF23BA57B100A61D4A /* StoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreViewController.swift; sourceTree = "<group>"; };
 		170B37D123BA57D100A61D4A /* TradingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradingViewController.swift; sourceTree = "<group>"; };
 		170B37D523BA594300A61D4A /* REViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = REViewController.swift; sourceTree = "<group>"; };
+		17278D0B23C6E17E005D1F56 /* outcome.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = outcome.png; sourceTree = "<group>"; };
+		17278D0C23C6E17E005D1F56 /* trading.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trading.png; sourceTree = "<group>"; };
+		17278D0D23C6E17E005D1F56 /* income.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = income.png; sourceTree = "<group>"; };
 		173994E423C4851200B188F2 /* SneakerDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SneakerDetailViewController.swift; sourceTree = "<group>"; };
 		174A814C23C58B7A001B1000 /* PaymentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PaymentViewController.swift; sourceTree = "<group>"; };
 		17A4190123995CA700802368 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +180,9 @@
 		17F202E0239A3421005BDCD4 /* Pictures */ = {
 			isa = PBXGroup;
 			children = (
+				17278D0D23C6E17E005D1F56 /* income.png */,
+				17278D0B23C6E17E005D1F56 /* outcome.png */,
+				17278D0C23C6E17E005D1F56 /* trading.png */,
 				17F202E1239A343A005BDCD4 /* Nike-mag.png */,
 				17FFD4C123C3B2700096E793 /* air-jordan-4-royalty-available-696x496.jpg */,
 				17A7C0D5239FFD9D0059B863 /* icon_2.png */,
@@ -258,13 +267,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				17278D1023C6E17E005D1F56 /* income.png in Resources */,
 				17C207D02397F62100575EC7 /* LaunchScreen.storyboard in Resources */,
 				17C207CD2397F62100575EC7 /* Assets.xcassets in Resources */,
+				17278D0E23C6E17E005D1F56 /* outcome.png in Resources */,
 				17FFD4C223C3B2710096E793 /* air-jordan-4-royalty-available-696x496.jpg in Resources */,
 				17A7C0D6239FFD9E0059B863 /* icon_2.png in Resources */,
 				17C207CB2397F61F00575EC7 /* Main.storyboard in Resources */,
 				17F202E2239A343A005BDCD4 /* Nike-mag.png in Resources */,
 				17ACC13D23C1D7CB008FB568 /* GoogleService-Info.plist in Resources */,
+				17278D0F23C6E17E005D1F56 /* trading.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

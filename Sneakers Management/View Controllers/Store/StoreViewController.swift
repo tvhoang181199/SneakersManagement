@@ -22,6 +22,11 @@ struct sneakerInfo {
 class sneakerCell: UICollectionViewCell {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    func setSneaker(_ sneaker: sneakerInfo) {
+        nameLabel.text = sneaker.name!
+        imageView.image = sneaker.image!
+    }
 }
 
 class StoreViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -34,8 +39,7 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     var category: String? = "All"
     var sneakerList = [sneakerInfo]()
     var count = 0
-    var selectedCellRow = 0
-
+    
     let db = Firestore.firestore()
     let email = Auth.auth().currentUser?.email
     
@@ -71,15 +75,15 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
             title: "Select Category",
             message: "\n\n\n\n\n\n",
             preferredStyle: .alert)
-
+        
         let categoriesPicker = UIPickerView(frame: CGRect(x: 0, y: 50, width: 260, height: 114))
         categoriesPicker.delegate = self
         categoriesPicker.dataSource = self
-
+        
         categoriesPicker.backgroundColor = UIColor.lightGray.withAlphaComponent(0.2)
-
+        
         alertView.view.addSubview(categoriesPicker)
-
+        
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
         alertView.addAction(okAction)
         
@@ -96,35 +100,37 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     func setImageList() {
         sneakerList.removeAll()
         db.collection("categories").document(category!).getDocument { (snapshot, err) in
-            if let err = err {
-                SCLAlertView().showError("Error", subTitle: err.localizedDescription)
-            }
-            else {
-                self.count = snapshot!.data()!["count"] as! Int
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
-                    if (self.count == 0) {
-                        SCLAlertView().showNotice("Out of stock", subTitle: "No sneakers found!")
-                    }
-                    else {
-                        for i in 0..<self.count {
-                            let index = "sneaker" + String(i)
-                            let info = snapshot?.data()![index] as! [Any]
-                            let _name = info[0] as! String
-                            let _amount = info[1] as! Int
-                            let _price = info[2] as! Int
-                            let _category = info[3] as! String
-                            let photoURL = info[4] as! String
-                            
-                            let ref = Storage.storage().reference(forURL: photoURL)
-                            ref.getData(maxSize: 1*2048*2048) { (data, err) in
-                                if let err = err {
-                                    SCLAlertView().showError("Error", subTitle: err.localizedDescription)
-                                }
-                                else {
-                                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
-                                        let sneaker = sneakerInfo(name: _name, category: _category, amount: _amount, price: _price, image: UIImage(data: data!))
-                                        self.sneakerList.append(sneaker)
-                                        self.collectionView.reloadData()
+            if let snapshot = snapshot, snapshot.exists {
+                if let err = err {
+                    SCLAlertView().showError("Error", subTitle: err.localizedDescription)
+                }
+                else {
+                    self.count = snapshot.data()!["count"] as! Int
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                        if (self.count == 0) {
+                            SCLAlertView().showNotice("Out of stock", subTitle: "No sneakers found!")
+                        }
+                        else {
+                            for i in 0..<self.count {
+                                let index = "sneaker" + String(i)
+                                let info = snapshot.data()![index] as! [Any]
+                                let _name = info[0] as! String
+                                let _amount = info[1] as! Int
+                                let _price = info[2] as! Int
+                                let _category = info[3] as! String
+                                let photoURL = info[4] as! String
+                                
+                                let ref = Storage.storage().reference(forURL: photoURL)
+                                ref.getData(maxSize: 1*2048*2048) { (data, err) in
+                                    if let err = err {
+                                        SCLAlertView().showError("Error", subTitle: err.localizedDescription)
+                                    }
+                                    else {
+                                        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+                                            let sneaker = sneakerInfo(name: _name, category: _category, amount: _amount, price: _price, image: UIImage(data: data!))
+                                            self.sneakerList.append(sneaker)
+                                            self.collectionView.reloadData()
+                                        }
                                     }
                                 }
                             }
@@ -132,8 +138,10 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
                     }
                 }
             }
+            else {
+                SCLAlertView().showNotice("Out of stock", subTitle: "No sneakers found!")
+            }
         }
-        collectionView.reloadData()
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -147,9 +155,8 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "sneakerCell", for: indexPath) as! sneakerCell
         
-        cell.imageView.image =  sneakerList[indexPath.row].image
-        cell.nameLabel.text = sneakerList[indexPath.row].name
-
+        cell.setSneaker(sneakerList[indexPath.row])
+        
         return cell
     }
     
@@ -157,7 +164,7 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
         if segue.identifier == "GotoSneakerDetailSegue" {
             let vc = segue.destination as! SneakerDetailViewController
             guard let indexPath = collectionView?.indexPathsForSelectedItems?.first else { return }
-              
+            
             vc.name = sneakerList[indexPath.row].name!
             vc.amount = sneakerList[indexPath.row].amount!
             vc.price = sneakerList[indexPath.row].price!
@@ -172,15 +179,15 @@ class StoreViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+     // MARK: - Navigation
+     
+     // In a storyboard-based application, you will often want to do a little preparation before navigation
+     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+     // Get the new view controller using segue.destination.
+     // Pass the selected object to the new view controller.
+     }
+     */
+    
 }
 
 extension StoreViewController: UIPickerViewDelegate, UIPickerViewDataSource {

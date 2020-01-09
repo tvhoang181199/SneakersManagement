@@ -21,7 +21,7 @@ class AddSneakerViewController: UIViewController, UITextFieldDelegate {
     
     var imagePicker: UIImagePickerController!
     
-    var amount: Int = 0
+    var amount: Int = 1
     var category: String? = "All"
     var countAll = 0
     var count = 0
@@ -87,8 +87,8 @@ class AddSneakerViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func minusButtonTapped(_ sender: Any) {
         amount = (amountTextField.text! as NSString).integerValue
-        if (amount == 0){
-            SCLAlertView().showError("Error", subTitle: "Amount must be equal or greater than 0!")
+        if (amount == 1){
+            SCLAlertView().showError("Error", subTitle: "Amount must be greater than 0!")
         }
         else {
             amount -= 1
@@ -124,6 +124,9 @@ class AddSneakerViewController: UIViewController, UITextFieldDelegate {
 
         if error != nil {
             SCLAlertView().showError("Error", subTitle: error!)
+        }
+        else if (amountTextField.text! as NSString).integerValue == 0 {
+            SCLAlertView().showError("Error", subTitle: "Amount must be greater than 0!")
         }
         else {
             // Get count from category "All"
