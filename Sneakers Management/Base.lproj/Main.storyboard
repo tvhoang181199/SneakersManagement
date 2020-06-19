@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e2j-cE-8jV">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="e2j-cE-8jV">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -471,7 +471,7 @@
                                 <rect key="frame" x="82" y="812" width="250" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="20"/>
-                                <state key="normal" title="Payment"/>
+                                <state key="normal" title="Pay"/>
                                 <connections>
                                     <action selector="payTapped:" destination="1I2-WC-BVe" eventType="touchUpInside" id="F9r-Nq-Ejc"/>
                                 </connections>
@@ -938,7 +938,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FRD-Lp-ivz">
-                                <rect key="frame" x="48" y="502" width="64" height="22"/>
+                                <rect key="frame" x="47" y="502" width="64" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.4392156862745098" green="0.75686274509803919" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title=" Male" image="circle" catalog="system">
@@ -950,7 +950,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HKC-iW-xoX">
-                                <rect key="frame" x="152" y="502" width="84" height="22"/>
+                                <rect key="frame" x="151" y="502" width="84" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="0.4392156862745098" green="0.75686274509803919" blue="0.70196078431372544" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title=" Female" image="circle" catalog="system">
@@ -1222,14 +1222,14 @@
     <resources>
         <image name="Nike-mag.png" width="1000" height="600"/>
         <image name="air-jordan-4-royalty-available-696x496.jpg" width="522" height="372"/>
-        <image name="c.square.fill" catalog="system" width="64" height="56"/>
-        <image name="checkmark.circle.fill" catalog="system" width="64" height="60"/>
-        <image name="circle" catalog="system" width="64" height="60"/>
+        <image name="c.square.fill" catalog="system" width="128" height="114"/>
+        <image name="checkmark.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="icon_2.png" width="384" height="384"/>
         <image name="income.png" width="225" height="225"/>
-        <image name="minus.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="minus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="outcome.png" width="225" height="225"/>
-        <image name="plus.circle.fill" catalog="system" width="64" height="60"/>
+        <image name="plus.circle.fill" catalog="system" width="128" height="121"/>
         <image name="trading.png" width="225" height="225"/>
     </resources>
 </document>

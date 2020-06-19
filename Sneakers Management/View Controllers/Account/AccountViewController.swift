@@ -89,15 +89,18 @@ class AccountViewController: UIViewController {
         alert.addButton("Yes") { () -> Void in
             let user = Auth.auth().currentUser
             let db = Firestore.firestore()
+            // Delete user database
             db.collection("users").document((user?.email)!).delete { (error) in
                 if let error = error {
                     SCLAlertView().showError("Error", subTitle: error.localizedDescription)
                 }
             }
             
+            // Delete user's profile photo
             let ref = Storage.storage().reference(forURL: self.profileImageURL!)
             ref.delete(completion: nil)
             
+            // Delete user
             user?.delete(completion: { (error) in
                 if let error = error {
                     SCLAlertView().showError("Error", subTitle: error.localizedDescription)

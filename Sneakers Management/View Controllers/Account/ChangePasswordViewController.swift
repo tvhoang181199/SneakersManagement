@@ -33,7 +33,7 @@ class ChangePasswordViewController: UIViewController {
     
     func validateFields() -> String? {
         if newPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == "" || confirmNewPasswordTextField.text?.trimmingCharacters(in: .whitespacesAndNewlines) == ""{
-            return "Please enter your current password and new one"
+            return "Please enter all fields"
         }
         let cleanedPassword = newPasswordTextField.text!.trimmingCharacters(in: .whitespacesAndNewlines)
         

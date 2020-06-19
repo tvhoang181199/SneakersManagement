@@ -149,42 +149,40 @@ class AddSneakerViewController: UIViewController, UITextFieldDelegate {
             }
             
             DispatchQueue.main.asyncAfter(wallDeadline: .now() + 1) {
-                self.db.collection("categories").document("All").updateData(["sneaker\(self.countAll)":[self.nameTextField.text!, self.amount, (self.priceTextField.text! as NSString).integerValue, self.category!, "gs://sneakers-management-e47a9.appspot.com/sneaker-image/\(self.nameTextField.text!)"], "count":(self.countAll + 1)])
-                
                 if self.category != "All" {
-                    self.db.collection("categories").document(self.category!).updateData(["sneaker\(self.count)":[self.nameTextField.text!, self.amount, (self.priceTextField.text! as NSString).integerValue, self.category!, "gs://sneakers-management-e47a9.appspot.com/sneaker-image/\(self.nameTextField.text!)"], "count":(self.count + 1)]) { (error) in
+                    self.db.collection("categories").document(self.category!).updateData(["sneaker\(self.count)":[self.nameTextField.text!, self.amount, (self.priceTextField.text! as NSString).integerValue, self.category!, "gs://sneakers-management-e47a9.appspot.com/sneaker-image/\(self.nameTextField.text!)"], "count":(self.count + 1)])
+                }
+                
+                self.db.collection("categories").document("All").updateData(["sneaker\(self.countAll)":[self.nameTextField.text!, self.amount, (self.priceTextField.text! as NSString).integerValue, self.category!, "gs://sneakers-management-e47a9.appspot.com/sneaker-image/\(self.nameTextField.text!)"], "count":(self.countAll + 1)]) { (error) in
+                    if error != nil {
+                        // Show error alert
+                        SCLAlertView().showError("Error", subTitle: error!.localizedDescription)
+                    }
+                    else {
+                        // Upload sneaker photo
+                        let storageRef = Storage.storage().reference().child("sneaker-image/\(self.nameTextField.text!)")
                         
-                        if error != nil {
-                            // Show error alert
-                            SCLAlertView().showError("Error", subTitle: error!.localizedDescription)
-                        }
-                        else {
-                            // Upload sneaker photo
-                            let storageRef = Storage.storage().reference().child("sneaker-image/\(self.nameTextField.text!)")
-                            
-                            guard let imageData = self.sneakerImageView.image!.jpegData(compressionQuality: 1) else { return }
-                            
-                            let metaData = StorageMetadata()
-                            metaData.contentType = "image/jpeg"
-                            
-                            storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
-                                guard metaData != nil else { return }
-                                storageRef.downloadURL { (url, error) in
-                                    guard url != nil else { return }
-                                }
+                        guard let imageData = self.sneakerImageView.image!.jpegData(compressionQuality: 1) else { return }
+                        
+                        let metaData = StorageMetadata()
+                        metaData.contentType = "image/jpeg"
+                        
+                        storageRef.putData(imageData, metadata: metaData) { (metaData, error) in
+                            guard metaData != nil else { return }
+                            storageRef.downloadURL { (url, error) in
+                                guard url != nil else { return }
                             }
-                            
-                            // Back to Store View
-                            let appearance = SCLAlertView.SCLAppearance(
-                                showCloseButton: false
-                            )
-                            let alert = SCLAlertView(appearance: appearance)
-                            alert.addButton("OK") { () -> Void in
-                                self.performSegue(withIdentifier: "unwindToStoreViewSegue", sender: self)
-                            }
-                            // Show success alert view
-                            alert.showSuccess("Success", subTitle: "Your new sneaker has been added!")
                         }
+                        // Back to Store View
+                        let appearance = SCLAlertView.SCLAppearance(
+                            showCloseButton: false
+                        )
+                        let alert = SCLAlertView(appearance: appearance)
+                        alert.addButton("OK") { () -> Void in
+                            self.performSegue(withIdentifier: "unwindToStoreViewSegue", sender: self)
+                        }
+                        // Show success alert view
+                        alert.showSuccess("Success", subTitle: "Your new sneaker has been added!")
                     }
                 }
             }

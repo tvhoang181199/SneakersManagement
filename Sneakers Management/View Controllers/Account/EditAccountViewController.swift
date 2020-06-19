@@ -56,6 +56,7 @@ class EditAccountViewController: UIViewController {
     func setUpData() {
         let email = Auth.auth().currentUser?.email
         let db = Firestore.firestore()
+        
         db.collection("users").document(email!).getDocument { (snapshot, err) in
             if let err = err {
                 print(err.localizedDescription)
